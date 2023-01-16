@@ -15,11 +15,11 @@ public:
 	PhoneBook		(const PhoneBook&);
 	PhoneBook&		operator=(const PhoneBook&);
 
-void		promptCommand	();
-std::string	ask				(std::string promptMessage);
+void	promptCommand	();
 private:
+	void		ask			(std::string promptMessage);
 	Contact		contact[8];
-	std::string	tmpInput;
+	std::string	commandInput;
 };
 
 

@@ -15,12 +15,13 @@ public:
 	Contact		(const Contact&);
 	Contact		&operator=(const Contact&);
 
+	void			addContact		();
+
 	void		setFirstName		(std::string	firstName);
 	void		setLastName			(std::string	LastName);
 	void		setNickName			(std::string	nickName);
 	void		setPhoneNumber		(std::string	phoneNumber);
 	void		setDarkestSecret	(std::string	darkestSecret);
-
 	std::string	getFirstName		();
 	std::string getLastName			();
 	std::string getNickName			();
@@ -32,6 +33,9 @@ private:
 	std::string	nickName;
 	std::string	phoneNumber;
 	std::string	darkestSecret;
+
+	std::string		ask	(std::string promptMessage);
+	std::string	commandInput;
 };
 
 

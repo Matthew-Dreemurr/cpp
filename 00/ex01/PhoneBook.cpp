@@ -12,12 +12,25 @@ PhoneBook::~PhoneBook() {}
 PhoneBook::PhoneBook(const PhoneBook &) {}
 
 void		PhoneBook::promptCommand() {
-		std::string tmp = this->ask("UwU?");
-		std::cout << tmp << "\n";
+	this->ask("PHONEBOOK$");
+	if (this->commandInput == "ADD") {
+		std::cout << "## ADD\n";
+		for (int index = 7; index > 0; index--) {
+			this->contact[index] = this->contact[index - 1];
+		}
+		this->contact[0].addContact();
+	} else if (this->commandInput == "SEARCH") {
+		std::cout << "## SEARCH\n";
+	} else if (this->commandInput == "EXIT") {
+		std::cout << "## EXIT\n";
+	}
+	std::cout << this->commandInput << "\n";
 }
 
-std::string	PhoneBook::ask(std::string promptMessage) {
-	std::cout << promptMessage << ": ";
-	std::cin >> this->tmpInput;
-	return this->tmpInput;
+void	PhoneBook::ask(std::string promptMessage) {
+	this->commandInput.clear();
+	do {
+		std::cout << promptMessage << ": ";
+		getline(std::cin, this->commandInput);
+	} while (this->commandInput.empty());
 }
