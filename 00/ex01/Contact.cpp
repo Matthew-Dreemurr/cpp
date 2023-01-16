@@ -4,3 +4,9 @@
 
 #include "Contact.hpp"
 
+Contact::Contact() {}
+Contact::Contact(const Contact &) {}
+Contact::~Contact() {}
+Contact &Contact::operator=(const Contact &) {
+	return *this;
+}
