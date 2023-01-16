@@ -10,15 +10,16 @@
 
 class PhoneBook {
 public:
-	PhoneBook		();
-	~PhoneBook		();
-	PhoneBook		(const PhoneBook&);
-	PhoneBook&		operator=(const PhoneBook&);
-
-void	promptCommand	();
+			PhoneBook		();
+			~PhoneBook		();
+			PhoneBook		(const PhoneBook&);
+			PhoneBook&		operator=(const PhoneBook&);
+	void	printContacts	();
+	void	promptCommand	();
 private:
-	void		ask			(std::string promptMessage);
-	Contact		contact[8];
+	void		ask				(std::string promptMessage);
+	std::string	truncateString	(std::string &string);
+				Contact		contact[8];
 	std::string	commandInput;
 };
 

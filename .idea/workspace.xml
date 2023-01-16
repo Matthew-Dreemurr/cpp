@@ -16,15 +16,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[WIP]">
-      <change afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/Contact.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/Contact.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00/ex01/Contact.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/Contact.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.dSYM/Contents/Resources/DWARF/PhoneBook" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.dSYM/Contents/Resources/DWARF/PhoneBook" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673864390653</updated>
       <workItem from="1673864394981" duration="1227000" />
-      <workItem from="1673870484751" duration="11018000" />
+      <workItem from="1673870484751" duration="12850000" />
     </task>
     <task id="LOCAL-00001" summary="[WIP]">
       <created>1673878106749</created>
@@ -97,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673878106749</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[WIP]">
+      <created>1673884191611</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673884191611</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,16 +121,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[WIP]" />
     <option name="LAST_COMMIT_MESSAGE" value="[WIP]" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/00/ex01/PhoneBook.cpp</url>
-          <line>26</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
