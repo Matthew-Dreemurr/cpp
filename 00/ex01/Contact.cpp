@@ -23,7 +23,7 @@ std::string	Contact::ask(std::string promptMessage) {
 	do {
 		std::cout << promptMessage << ": ";
 		getline(std::cin, this->commandInput);
-	} while (this->commandInput.empty());
+	} while (this->commandInput.empty() || commandInput.find_first_not_of (' ') == commandInput.npos);
 	return this->commandInput;
 }
 

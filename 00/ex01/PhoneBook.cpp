@@ -41,7 +41,7 @@ void	PhoneBook::ask(std::string promptMessage) {
 	do {
 		std::cout << promptMessage << ": ";
 		getline(std::cin, this->commandInput);
-	} while (this->commandInput.empty());
+	} while (this->commandInput.empty() || commandInput.find_first_not_of (' ') == commandInput.npos);
 }
 
 std::string	PhoneBook::truncateString(std::string &string)
@@ -52,9 +52,9 @@ std::string	PhoneBook::truncateString(std::string &string)
 }
 
 void	PhoneBook::printContacts() {
-	std::cout << "     INDEX|FIRST NAME| LAST NAME|NICKNAME\n";
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|NICKNAME |\n";
 	for (int index = 0; index < 8; index++) {
-		std::cout << std::right << std::setw(10) << index << "|";
+		std::cout << "|" << std::right << std::setw(10) << index << "|";
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].firstName) << "|";
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].lastName) << "|";
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].nickName) << "|";
