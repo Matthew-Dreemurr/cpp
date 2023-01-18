@@ -5,6 +5,7 @@
 #include "PhoneBook.hpp"
 #include "iomanip"
 #include <stdlib.h>
+#include <cstdio>
 
 PhoneBook::PhoneBook() {
 
@@ -28,8 +29,11 @@ int		PhoneBook::promptCommand() {
 		// Add new contact with the user input
 		if (this->contact[0].addContact())
 			return (EXIT_SUCCESS);
-		this->printContacts();
+		this->printContacts();//TODO remove
 	} else if (this->commandInput == "SEARCH") {
+		//TODO select contac
+		if (this->selectContact())
+			return (EXIT_SUCCESS);
 		std::cout << "## SEARCH\n";
 	} else if (this->commandInput == "EXIT") {
 		std::cout << "## EXIT\n";
@@ -78,4 +82,37 @@ void	PhoneBook::printContacts() {
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].nickName) << "|";
 		std::cout << std::endl;
 	}
+}
+
+void	PhoneBook::printContact(int index) {
+	if (index < 0 || index > 8)
+		return ;
+	
+	std::cout << "First Name: " << this->contact[index].firstName << std::endl;
+	std::cout << "Last Name: " << this->contact[index].lastName << std::endl;
+	std::cout << "Nick Name: " << this->contact[index].nickName << std::endl;
+	std::cout << "Phone Number: " << this->contact[index].phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << this->contact[index].darkestSecret << std::endl;
+}
+
+bool	PhoneBook::selectContact() {
+	this->printContacts();
+
+	int index;
+
+	while (1)
+	{
+		if (this->ask("Select contact: "))
+			return (EXIT_FAILURE);
+		
+		// Convert string to int
+		std::sscanf(this->commandInput.c_str(), "%d", &index);
+		if (index < 0 || index > 8) {
+			std::cout << "Bad index, please retry" << std::endl;
+			continue ;
+		}
+		break ;
+	}
+	this->printContact(index);
+	return (EXIT_SUCCESS);
 }
