@@ -15,9 +15,9 @@ public:
 			PhoneBook		(const PhoneBook&);
 			PhoneBook&		operator=(const PhoneBook&);
 	void	printContacts	();
-	void	promptCommand	();
+	int     promptCommand	();
 private:
-	void		ask				(std::string promptMessage);
+	bool		ask				(std::string promptMessage);
 	std::string	truncateString	(std::string &string);
 				Contact		contact[8];
 	std::string	commandInput;

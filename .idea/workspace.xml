@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
 }</component>
@@ -19,16 +22,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.dSYM/Contents/Resources/DWARF/PhoneBook" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.dSYM/Contents/Resources/DWARF/PhoneBook" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/include/c++/11/bits/basic_string.h" root0="SKIP_INSPECTION" />
   </component>
   <component name="NamedScopeManager">
     <scope name="ex01" pattern="file[cpp]:00/ex01/*" />
@@ -46,21 +56,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
+    "cf.advertisement.text.has.clang-format": "true",
     "cf.advertisement.text.overridden": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CLionExternalConfigurable"
+    "settings.editor.selected.configurable": "CLionExternalConfigurable",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Makefile Application.PhoneBook">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
@@ -84,6 +103,7 @@
       <updated>1673864390653</updated>
       <workItem from="1673864394981" duration="1227000" />
       <workItem from="1673870484751" duration="13165000" />
+      <workItem from="1674044930705" duration="1040000" />
     </task>
     <task id="LOCAL-00001" summary="[WIP]">
       <created>1673878106749</created>
@@ -126,5 +146,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[WIP]" />
     <option name="LAST_COMMIT_MESSAGE" value="[WIP]" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/00/ex01/Contact.cpp</url>
+          <line>22</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

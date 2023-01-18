@@ -6,6 +6,9 @@
 int main(){
 	PhoneBook phoneBook;
 	do {
-		phoneBook.promptCommand();
+        if (!phoneBook.promptCommand()) {
+            break ;
+        }
 	} while (1);
+    return (0);
 }

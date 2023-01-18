@@ -3,8 +3,8 @@
 //
 
 #include "PhoneBook.hpp"
-#include "iostream"
 #include "iomanip"
+#include <stdlib.h>
 
 PhoneBook::PhoneBook() {
 
@@ -12,13 +12,13 @@ PhoneBook::PhoneBook() {
 PhoneBook::~PhoneBook() {}
 PhoneBook::PhoneBook(const PhoneBook &) {}
 
-void		PhoneBook::promptCommand() {
+int		PhoneBook::promptCommand() {
 	// Get command
-	this->ask("PHONEBOOK$");
+	if (this->ask("PHONEBOOK$"))
+		return (EXIT_SUCCESS);
 
 	// Exe the command
 	if (this->commandInput == "ADD") {
-		std::cout << "## ADD\n";
 
 		// Move all contact down
 		for (int index = 7; index > 0; index--) {
@@ -26,22 +26,35 @@ void		PhoneBook::promptCommand() {
 		}
 
 		// Add new contact with the user input
-		this->contact[0].addContact();
+		if (this->contact[0].addContact())
+			return (EXIT_SUCCESS);
 		this->printContacts();
 	} else if (this->commandInput == "SEARCH") {
 		std::cout << "## SEARCH\n";
 	} else if (this->commandInput == "EXIT") {
 		std::cout << "## EXIT\n";
+        return (EXIT_SUCCESS);
 	}
 	std::cout << this->commandInput << "\n";
+    return (2);
 }
 
-void	PhoneBook::ask(std::string promptMessage) {
+bool	PhoneBook::ask(std::string promptMessage) {
 	this->commandInput.clear();
 	do {
 		std::cout << promptMessage << ": ";
+		std::cin.clear();
 		getline(std::cin, this->commandInput);
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			if (std::cin.fail() || !std::cin.good())
+				return (EXIT_FAILURE);
+			continue ;
+		}
 	} while (this->commandInput.empty() || commandInput.find_first_not_of (' ') == commandInput.npos);
+	return (EXIT_SUCCESS);
 }
 
 std::string	PhoneBook::truncateString(std::string &string)
@@ -58,6 +71,6 @@ void	PhoneBook::printContacts() {
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].firstName) << "|";
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].lastName) << "|";
 		std::cout << std::right << std::setw(10) << truncateString(this->contact[index].nickName) << "|";
-		std::cout << "\n";
+		std::cout << std::endl;
 	}
 }

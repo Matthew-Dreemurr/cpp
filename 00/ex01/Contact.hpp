@@ -15,7 +15,7 @@ public:
 	Contact		(const Contact&);
 	Contact		&operator=(const Contact&);
 
-	void		addContact		();
+	int		addContact		();
 	std::string	firstName;
 	std::string	lastName;
 	std::string	nickName;
@@ -23,7 +23,7 @@ public:
 	std::string	darkestSecret;
 private:
 
-	std::string		ask	(std::string promptMessage);
+	bool		ask	(std::string promptMessage, std::string &data);
 	std::string	commandInput;
 };
 
