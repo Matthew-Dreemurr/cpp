@@ -8,6 +8,7 @@
 			"name": "PhoneBook",
 			"type": "cppdbg",
 			"request": "launch",
+			"preLaunchTask": "Compile ex01",
 			"program": "${workspaceFolder}/00/ex01/PhoneBook",
 			"args": [],
 			"stopAtEntry": false,

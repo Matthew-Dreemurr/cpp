@@ -45,12 +45,17 @@ bool	PhoneBook::ask(std::string promptMessage) {
 		std::cout << promptMessage << ": ";
 		std::cin.clear();
 		getline(std::cin, this->commandInput);
-		if (std::cin.eof())
+		// Check if the stdin was not close
+		if (std::cin.eof() || std::cin.fail() || !std::cin.good())
 		{
+			// Try to reset the stream
 			std::cin.clear();
 			std::cin.ignore();
+
+			// Check if the reset work
 			if (std::cin.fail() || !std::cin.good())
 				return (EXIT_FAILURE);
+			// If the stdin work retry the prompt
 			continue ;
 		}
 	} while (this->commandInput.empty() || commandInput.find_first_not_of (' ') == commandInput.npos);
