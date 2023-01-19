@@ -23,7 +23,7 @@ bool	Contact::ask(std::string promptMessage, std::string &data) {
 	this->commandInput.clear();
 	data.clear();
 	do {
-		std::cout << promptMessage << ": ";
+		std::cout << promptMessage;
 		std::cin.clear();
 		getline(std::cin, this->commandInput);
 
