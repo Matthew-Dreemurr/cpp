@@ -1,13 +1,25 @@
 # include <iostream>
 # include "Account.hpp"
 
-Account::Account( int initial_deposit )
+int Account::_nbAccounts = 0;
+// int //TODO WIP
+
+Account::Account( int initial_deposit ) :
+_amount(initial_deposit)
 {
-	(void) initial_deposit;
-	std::cout << "test" << initial_deposit << std::endl;
+	if (!_nbAccounts)
+		_nbAccounts = 1;
+	_accountIndex = _nbAccounts - 1;
+
+	std::cout << "index:" << _accountIndex << ";" << "amount:" << this->_amount << ";" << "created" << std::endl;
+
+	this->_nbAccounts++;
 }
 
-
+void Account::displayAccountsInfos( void )
+{
+	
+}
 
 Account::~Account( void )
 {

@@ -7,6 +7,11 @@
 			"label": "Compile ex01",
 			"type": "shell",
 			"command": "make -C ${workspaceFolder}/00/ex01"
+		},
+		{
+			"label": "Compile ex02",
+			"type": "shell",
+			"command": "make -C ${workspaceFolder}/00/ex02"
 		}
 	]
 }
