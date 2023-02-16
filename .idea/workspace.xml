@@ -20,10 +20,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[WIP]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/PhoneBook.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/PhoneBook.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex01/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00/ex02/Account.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex02/Account.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00/ex02/test" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex02/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,15 +69,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CLionExternalConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Makefile Application.PhoneBook">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
@@ -104,6 +102,7 @@
       <workItem from="1673864394981" duration="1227000" />
       <workItem from="1673870484751" duration="13165000" />
       <workItem from="1674044930705" duration="1040000" />
+      <workItem from="1676561522150" duration="234000" />
     </task>
     <task id="LOCAL-00001" summary="[WIP]">
       <created>1673878106749</created>
