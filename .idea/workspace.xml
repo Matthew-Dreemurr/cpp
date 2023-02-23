@@ -18,15 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[WIP]">
-      <change afterPath="$PROJECT_DIR$/01/ex00/Zombie.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01/ex00/Zombie.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01/ex00/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01/ex00/newZombie.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01/ex00/randomChump.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[WIP] 01ex00" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +99,7 @@
       <workItem from="1673870484751" duration="13165000" />
       <workItem from="1674044930705" duration="1040000" />
       <workItem from="1676561522150" duration="234000" />
-      <workItem from="1677141755802" duration="5626000" />
+      <workItem from="1677141755802" duration="5971000" />
     </task>
     <task id="LOCAL-00001" summary="[WIP]">
       <created>1673878106749</created>
@@ -130,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673886140699</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[WIP] 01ex00">
+      <created>1677148828724</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677148828724</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[WIP]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[WIP]" />
+    <MESSAGE value="[WIP] 01ex00" />
+    <option name="LAST_COMMIT_MESSAGE" value="[WIP] 01ex00" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
