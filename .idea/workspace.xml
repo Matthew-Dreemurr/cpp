@@ -19,9 +19,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[WIP]">
+      <change afterPath="$PROJECT_DIR$/01/ex00/Zombie.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01/ex00/Zombie.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01/ex00/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01/ex00/newZombie.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01/ex00/randomChump.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex02/Account.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex02/Account.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/ex02/test" beforeDir="false" afterPath="$PROJECT_DIR$/00/ex02/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,15 +73,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "terminal",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Makefile Application.PhoneBook">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
@@ -103,6 +107,7 @@
       <workItem from="1673870484751" duration="13165000" />
       <workItem from="1674044930705" duration="1040000" />
       <workItem from="1676561522150" duration="234000" />
+      <workItem from="1677141755802" duration="5626000" />
     </task>
     <task id="LOCAL-00001" summary="[WIP]">
       <created>1673878106749</created>
@@ -145,17 +150,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[WIP]" />
     <option name="LAST_COMMIT_MESSAGE" value="[WIP]" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/00/ex01/Contact.cpp</url>
-          <line>22</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
