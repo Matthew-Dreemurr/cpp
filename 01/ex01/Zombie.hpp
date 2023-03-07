@@ -15,10 +15,11 @@ public:
     ~Zombie();
 
     Zombie &operator=(const Zombie&);
-    Zombie* newZombie( std::string name );
-    void randomChump( std::string name );
     void announce( void );
+    Zombie* zombieHorde( int N, std::string name );
 private:
+    int         hordeSize;
+    Zombie      * horde;
     std::string name;
 
 
