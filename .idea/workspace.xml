@@ -18,7 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[UPD] ide" />
+    <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[WIP]" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +30,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file:///usr/include/c++/11/bits/basic_string.h" root0="SKIP_INSPECTION" />

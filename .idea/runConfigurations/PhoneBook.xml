@@ -1,7 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="PhoneBook" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp" TARGET_NAME="Default" CONFIG_NAME="Default" version="1" RUN_PATH="$PROJECT_DIR$/00/ex01/PhoneBook">
-    <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="all" run_configuration_type="MAKEFILE_TARGET_RUN_CONFIGURATION" />
-    </method>
+    <method v="2" />
   </configuration>
 </component>
