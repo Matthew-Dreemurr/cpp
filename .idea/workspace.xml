@@ -18,11 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[UPD] ide">
-      <change afterPath="$PROJECT_DIR$/01/ex01/zombieHorde.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01/ex00/Zombie.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/01/ex00/Zombie.hpp" afterDir="false" />
-    </list>
+    <list default="true" id="ba021156-89e2-4425-8f11-490c3e89e04d" name="Changes" comment="[UPD] ide" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,9 +71,9 @@
   }
 }</component>
   <component name="RunManager" selected="Makefile Application.PhoneBook">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
@@ -105,6 +101,7 @@
       <workItem from="1676561522150" duration="234000" />
       <workItem from="1677141755802" duration="6238000" />
       <workItem from="1677951378096" duration="2725000" />
+      <workItem from="1678206951875" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="[WIP]">
       <created>1673878106749</created>
