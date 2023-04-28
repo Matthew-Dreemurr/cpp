@@ -52,6 +52,7 @@ int		PhoneBook::promptCommand() {
 bool	PhoneBook::ask(std::string promptMessage) {
 	this->commandInput.clear();
 	do {
+		this->commandInput.clear();
 		std::cout << promptMessage;
 
 		// Read the stdin
@@ -117,6 +118,13 @@ bool	PhoneBook::selectContact() {
 		if (this->ask("Select contact: "))
 			return (EXIT_FAILURE);
 		
+
+		// Check if is only number in the string
+		if (this->commandInput.find_first_not_of ("0123456789") != this->commandInput.npos) {
+			std::cout << "Bad index, please retry" << std::endl;
+			continue ;
+		}
+
 		// Convert string to int
 		std::sscanf(this->commandInput.c_str(), "%d", &index);
 		if (index < 0 || index > 7) {
