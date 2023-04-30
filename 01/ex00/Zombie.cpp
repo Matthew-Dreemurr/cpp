@@ -4,13 +4,9 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() {
-    this->name = "No name";
-}
-
-Zombie::Zombie(const Zombie &newZombie) {
-    *this = newZombie;
-}
+Zombie::Zombie(const std::string &name) 
+: name(name)
+{}
 
 Zombie &Zombie::operator=(const Zombie &newZombie) {
     this->name = newZombie.name;
@@ -21,6 +17,6 @@ Zombie::~Zombie() {
     std::cout << "Kill " << this->name << " Zombie" << std::endl;
 }
 
-void Zombie::announce() {
+void Zombie::announce() const {
     std::cout << this->name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }

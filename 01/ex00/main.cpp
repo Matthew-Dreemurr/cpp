@@ -5,14 +5,8 @@
 #include "Zombie.hpp"
 
 int main(void) {
-    Zombie testConstructor = Zombie();
-    Zombie* testAlloc = new Zombie();
-    Zombie testRandom;
-    Zombie *testNew = testRandom.newZombie("Billy");
-
-    testConstructor.newZombie("Keven");
-    testAlloc->newZombie("Mike");
-    testRandom.randomChump("Lolo");
-    delete testNew;
-    delete testAlloc;
+	Zombie *zombie = newZombie("Urmom");
+	zombie->announce();
+	delete zombie;
+	randomChump("Urdad");
 }

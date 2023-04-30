@@ -7,22 +7,19 @@
 
 #include "iostream"
 
-
 class Zombie {
 public:
-    Zombie();
-    Zombie(const Zombie&);
-    ~Zombie();
+	Zombie(const std::string &name);
+	Zombie(const Zombie&);
+	~Zombie();
 
-    Zombie &operator=(const Zombie&);
-    Zombie* newZombie( std::string name );
-    void randomChump( std::string name );
-    void announce( void );
+	Zombie &operator=(const Zombie&);
+	void announce( void ) const;
 private:
-    std::string name;
-
-
+	std::string name;
 };
 
+Zombie *newZombie( std::string name );
+void randomChump( std::string name );
 
 #endif //CPP_ZOMBIE_HPP

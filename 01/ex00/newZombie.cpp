@@ -4,10 +4,9 @@
 
 #include "Zombie.hpp"
 
-Zombie *Zombie::newZombie( std::string name )
+Zombie *newZombie( std::string name )
 {
-    Zombie *zombie = new Zombie();
-    zombie->name = name;
-    std::cout << "[DEBUG] Create " << name << " zombie" << std::endl;
-    return zombie;
+	Zombie *zombie = new Zombie(name);
+	// std::cout << "[DEBUG] Create " << name << " zombie" << std::endl;
+	return zombie;
 }
