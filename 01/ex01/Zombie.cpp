@@ -4,14 +4,17 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() {
-    this->name = "No name";
-    this->hordeSize = 0;
+Zombie::Zombie(const std::string &name) 
+: name(name)
+{}
+
+Zombie::Zombie(const Zombie& newZombie) {
+	*this = newZombie;
 }
 
-Zombie::Zombie(const Zombie &newZombie) {
-    *this = newZombie;
-}
+Zombie::Zombie()
+: name("Zombie")
+{}
 
 Zombie &Zombie::operator=(const Zombie &newZombie) {
     this->name = newZombie.name;
@@ -19,13 +22,13 @@ Zombie &Zombie::operator=(const Zombie &newZombie) {
 }
 
 Zombie::~Zombie() {
-//    if (this->hordeSize)
-//        for (int i = 0; i < this->hordeSize; ++i) {
-//            delete this->horde;
-//        }
     std::cout << "Kill " << this->name << " Zombie" << std::endl;
 }
 
-void Zombie::announce() {
+void Zombie::announce() const {
     std::cout << this->name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(const std::string &name) {
+	this->name = name;
 }

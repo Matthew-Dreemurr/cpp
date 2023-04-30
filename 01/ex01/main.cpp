@@ -6,14 +6,13 @@
 
 int main(void) {
 
-    const int N = 23;
+	const int N = 23;
 
-    Zombie door = Zombie();
-    Zombie * zombieHorde = door.zombieHorde(N, "UwU");
+	Zombie * horde = zombieHorde(N, "UwU");
 
-    for (int i = 0; i < N; ++i) {
-        zombieHorde[i].announce();
-        delete &zombieHorde[i];
-    }
+	for (int i = 0; i < N; ++i) {
+		horde[i].announce();
+	}
 
+	delete [] horde;
 }

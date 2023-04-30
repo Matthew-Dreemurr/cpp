@@ -10,18 +10,16 @@
  * @param name used to name the zombie
  * @return Address from the firs zombie of the array
  */
-Zombie *Zombie::zombieHorde(int N, std::string name) {
-    Zombie *allocZombie = new Zombie[N] ;
+Zombie *zombieHorde(int N, std::string name) {
 
-    if (!allocZombie)
-        return (NULL);
+	Zombie *allocZombie = new Zombie[N];
 
-    this->horde = allocZombie;
-    this->hordeSize = N;
+	if (!allocZombie)
+		return (NULL);
 
-    for (int i = 0; i < N; ++i) {
-        allocZombie[i].name = name;
-    }
+	for (int i = 0; i < N; i++) {
+		allocZombie[i].setName(name);
+	}
 
-    return allocZombie;
+	return allocZombie;
 }
