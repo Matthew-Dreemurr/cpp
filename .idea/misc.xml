@@ -5,6 +5,7 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$/00" />
       <file path="$PROJECT_DIR$/01" />
+      <file path="$PROJECT_DIR$/01/ex03" />
     </sourceRoots>
   </component>
   <component name="MarkdownSettingsMigration">
