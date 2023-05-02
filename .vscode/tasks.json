@@ -4,14 +4,19 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Compile ex01",
+			"label": "Compile 00ex01",
 			"type": "shell",
 			"command": "make -C ${workspaceFolder}/00/ex01"
 		},
 		{
-			"label": "Compile ex02",
+			"label": "Compile 00ex02",
 			"type": "shell",
 			"command": "make -C ${workspaceFolder}/00/ex02"
-		}
+		},
+		{
+			"label": "Compile 01ex04",
+			"type": "shell",
+			"command": "make -C ${workspaceFolder}/01/ex04"
+		},
 	]
 }

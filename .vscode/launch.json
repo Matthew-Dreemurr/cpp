@@ -8,7 +8,7 @@
 			"name": "PhoneBook",
 			"type": "cppdbg",
 			"request": "launch",
-			"preLaunchTask": "Compile ex01",
+			"preLaunchTask": "Compile 00ex01",
 			"program": "${workspaceFolder}/00/ex01/PhoneBook",
 			"args": [],
 			"stopAtEntry": false,
@@ -33,7 +33,7 @@
 			"name": "Account",
 			"type": "cppdbg",
 			"request": "launch",
-			"preLaunchTask": "Compile ex02",
+			"preLaunchTask": "Compile 00ex02",
 			"program": "${workspaceFolder}/00/ex02/test",
 			"args": [],
 			"stopAtEntry": false,
@@ -41,6 +41,31 @@
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "sed",
+			"type": "cppdbg",
+			"request": "launch",
+			"preLaunchTask": "Compile 01ex04",
+			"program": "${workspaceFolder}/01/ex04/cppsed",
+			"args": ["test.txt", "bois", "x"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
 			"setupCommands": [
 				{
 					"description": "Enable pretty-printing for gdb",
