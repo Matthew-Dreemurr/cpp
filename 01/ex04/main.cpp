@@ -21,11 +21,6 @@ int main(int argc, char *argv[]) {
 	const char *s1					= argv[2];
 	const char *s2					= argv[3];
 
-	if (!s1[0] || !s2[0]) {
-		std::cout << "[ERROR] <s1> or <s2> empty string" << std::endl;
-		return (1);
-	}
-
 	// Open <filename> and check
 	std::fstream sourceFile;
 	sourceFile.open(inFileName.c_str(), std::fstream::in);
