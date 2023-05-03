@@ -34,6 +34,7 @@ void Harl::complain(std::string level) {
 	{
 		if (findLevel[i] == level) {
 			(functionPtr[i])();
+			break;
 		}
 	}
 }
