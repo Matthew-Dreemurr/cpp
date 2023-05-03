@@ -2,11 +2,8 @@ NAME = human
 
 SRC = \
 Weapon.cpp \
-Weapon.hpp \
 HumanA.cpp \
-HumanA.hpp \
- HumanB.cpp \
- HumanB.hpp \
+HumanB.cpp \
 main.cpp
 
 CC = c++
@@ -16,4 +13,4 @@ all:
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 run: all
-	./megaphone
+	./human
