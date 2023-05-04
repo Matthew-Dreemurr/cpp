@@ -5,8 +5,8 @@
 #include "Zombie.hpp"
 
 int main(void) {
-	Zombie *zombie = newZombie("Urmom");
+	Zombie *zombie = newZombie("Keven");
 	zombie->announce();
 	delete zombie;
-	randomChump("Urdad");
+	randomChump("Tristan");
 }
