@@ -14,6 +14,4 @@ private:
 	const static int fract = 8;
 };
 
-Fixed operator+(const Fixed& lhs, const Fixed rhs);
-
 #endif /* FIXED_H */
