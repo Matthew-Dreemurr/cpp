@@ -78,6 +78,31 @@
 					"ignoreFailures": true
 				}
 			]
+		},
+		{
+			"name": "CPP02ex03",
+			"type": "cppdbg",
+			"request": "launch",
+			"preLaunchTask": "Compile 02ex02",
+			"program": "${workspaceFolder}/02/ex02/test",
+			// "args": ["test.txt", "bois", "x"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
 		}
 		
 	]
