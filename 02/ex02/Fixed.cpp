@@ -16,6 +16,7 @@
 
 	Fixed::Fixed(const float nb)
 	{
+		number = std::roundf(nb * std::pow(2, fract));
 		// std::cout << "Float constructor called" << std::endl;
 	}
 
