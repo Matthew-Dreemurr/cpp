@@ -1,11 +1,6 @@
 #include "ClapTrap.hpp"
 
 #include <iostream>
-ClapTrap::ClapTrap ()
-: name("NoName"), hp(10), ep(10), ad(0)
-{
-	std::cout << "[ClapTrap] A new Hero is born, we call it " << name << ", he as " << hp << " hit points, " << ep << " energy points and " << ad << " attack damage" << std::endl;
-}
 
 ClapTrap::ClapTrap ( const std::string newName )
 : name(newName), hp(10), ep(10), ad(0)

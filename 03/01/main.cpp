@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main(void) {
@@ -41,6 +41,8 @@ int main(void) {
 	test->beRepaired(2);
 	test->beRepaired(2);
 	test->beRepaired(2);
+
+	test->guardGate();
 
 	delete test;
 

@@ -5,8 +5,7 @@
 
 class ClapTrap {
 	public:
-		ClapTrap();
-		ClapTrap( const std::string newName );
+		ClapTrap( const std::string);
 		~ClapTrap();
 		ClapTrap( const ClapTrap &newClapTrap );
 		ClapTrap& operator=( const ClapTrap &newClapTrap );
@@ -15,7 +14,7 @@ class ClapTrap {
 		void takeDamage( unsigned int amount );
 		void beRepaired( unsigned int amount );
 
-	private:
+	protected:
 		std::string		name;
 		// Hit points
 		unsigned int	hp;
