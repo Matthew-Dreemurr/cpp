@@ -35,19 +35,6 @@ FragTrap& FragTrap::operator=(const FragTrap &newClapTrap )
 	return *this;
 }
 
-void FragTrap::attack( const std::string& target ) {
-	if (!hp) {
-		std::cout << "[FragTrap] " << this->name << " is death, death cannot figth..." << std::endl;
-		return;
-	}
-	// Attacking and repairing cost 1 energy point
-	if (removePoints(this->ep, 1)) {
-		std::cout << "[FragTrap] " << this->name << " attacks " << target << ", causing " << this->ad << " points of damage! " << ep << " energie points left" << std::endl;
-		return;
-	}
-	std::cout << "[FragTrap] " << this->name << " doesn't have enough energy to attack" << std::endl;
-}
-
 void FragTrap::highFivesGuys() {
 	std::cout << "[FragTrap] " << this->name << " make a high fives request ?!" << std::endl;
 };
