@@ -1,0 +1,40 @@
+#include "FragTrap.hpp"
+
+#include <iostream>
+
+DiamondTrap::DiamondTrap ( const std::string newName )
+:	ClapTrap(newName)
+{
+	this->name = newName;
+	this->hp = 100;
+	this->ep = 100;
+	this->ad = 30;
+	std::cout << "[FragTrap] A new Hero is born, we call it " << name << ", he as " << hp << " hit points, " << ep << " energy points and " << ad << " attack damage" << std::endl;
+}
+
+DiamondTrap::~DiamondTrap() {
+	std::cout << "[FragTrap] " << name << " has fallen on the battlefield, may valhalla welcome him as a hero! " << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &newClapTrap )
+:	ClapTrap(newClapTrap)
+{
+	this->name = newClapTrap.name;
+	this->hp = newClapTrap.hp;
+	this->ep = newClapTrap.ep;
+	this->ad = newClapTrap.ad;
+	std::cout << "[FragTrap] We have cloned one of our best warrior, he is called " << name << std::endl;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &newClapTrap )
+{
+	name = newClapTrap.name;
+	hp = newClapTrap.hp; ep = newClapTrap.ep;
+	ad = newClapTrap.ad;
+	std::cout << "[FragTrap] We have cloned one of our best warrior, he is called " << name << std::endl;
+	return *this;
+}
+
+void DiamondTrap::highFivesGuys() {
+	std::cout << "[FragTrap] " << this->name << " make a high fives request ?!" << std::endl;
+};
