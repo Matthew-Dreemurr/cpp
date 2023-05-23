@@ -2,6 +2,16 @@
 
 #include <iostream>
 
+FragTrap::FragTrap ()
+:	ClapTrap()
+{
+	this->name = "test";
+	this->hp = 100;
+	this->ep = 100;
+	this->ad = 30;
+	std::cout << "[FragTrap] A new Hero is born, we call it " << name << ", he as " << hp << " hit points, " << ep << " energy points and " << ad << " attack damage" << std::endl;
+}
+
 FragTrap::FragTrap ( const std::string newName )
 :	ClapTrap(newName)
 {

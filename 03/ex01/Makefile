@@ -1,6 +1,6 @@
 NAME = test
 
-SRC = ClapTrap.cpp main.cpp ScavTrap.cpp 
+SRC = ClapTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

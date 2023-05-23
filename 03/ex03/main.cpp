@@ -1,11 +1,12 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
 int main(void) {
 
 	std::cout << "-=-=-=-=-= [TEST] Attack and die =-=-=-=-=-" << std::endl;
 
-	FragTrap *test = new FragTrap("Keven"); 
+	DiamondTrap *test = new DiamondTrap("Keven"); 
+	test->whoAmI();
 	test->takeDamage(2);
 	test->takeDamage(2);
 	test->takeDamage(2);
@@ -24,8 +25,9 @@ int main(void) {
 	
 	std::cout << "-=-=-=-=-= [TEST] Attack and repair =-=-=-=-=-" << std::endl;
 
-	test = new FragTrap("Jordan");
+	test = new DiamondTrap("Jordan");
 
+	test->whoAmI();
 	test->takeDamage(2);
 	test->takeDamage(2);
 	test->takeDamage(2);

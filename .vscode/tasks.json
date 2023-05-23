@@ -23,5 +23,10 @@
 			"type": "shell",
 			"command": "make -C ${workspaceFolder}/02/ex02"
 		},
+		{
+			"label": "Compile 03ex03",
+			"type": "shell",
+			"command": "make -C ${workspaceFolder}/03/ex03"
+		}
 	]
 }

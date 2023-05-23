@@ -2,6 +2,16 @@
 
 #include <iostream>
 
+ScavTrap::ScavTrap ()
+:	ClapTrap()
+{
+	this->name = "test";
+	this->hp = 100;
+	this->ep = 50;
+	this->ad = 20;
+	std::cout << "[ScavTrap] A new Hero is born, we call it " << name << ", he as " << hp << " hit points, " << ep << " energy points and " << ad << " attack damage" << std::endl;
+}
+
 ScavTrap::ScavTrap ( const std::string newName )
 :	ClapTrap(newName)
 {
