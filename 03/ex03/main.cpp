@@ -15,7 +15,7 @@ int main(void) {
 
 	test->takeDamage(2);
 	test->takeDamage(2);
-	test->takeDamage(2);
+	test->takeDamage(90);
 
 	test->attack("Jordan");
 
