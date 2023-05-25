@@ -4,17 +4,8 @@
 
 #include <iostream>
 
-DiamondTrap::DiamondTrap ()
-{
-	this->name = "test";
-	ClapTrap::name = "test_clap_name";
-	this->hp = 100;
-	this->ep = 50;
-	this->ad = 30;
-	std::cout << "[DiamondTrap] A new Hero is born, we call it " << name << ", he as " << hp << " hit points, " << ep << " energy points and " << ad << " attack damage" << std::endl;
-}
-
 DiamondTrap::DiamondTrap ( const std::string newName )
+: ClapTrap(newName), FragTrap(newName), ScavTrap(newName)
 {
 	this->name = newName;
 	ClapTrap::name = newName + "_clap_name";
@@ -29,7 +20,7 @@ DiamondTrap::~DiamondTrap() {
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &newClapTrap )
-: ClapTrap(), FragTrap(), ScavTrap()
+: ClapTrap(newClapTrap), FragTrap(newClapTrap), ScavTrap(newClapTrap)
 {
 	this->name = newClapTrap.name;
 	this->hp = newClapTrap.hp;

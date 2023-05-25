@@ -6,14 +6,12 @@
 
 class ScavTrap : virtual public ClapTrap {
 	public:
-		ScavTrap ();
 		ScavTrap( const std::string newName);
 		~ScavTrap();
 		ScavTrap( const ScavTrap &newClapTrap );
 		ScavTrap& operator=( const ScavTrap &newClapTrap );
 
 		void guardGate();
-		void attack (const std::string& target );
 };
 
 #endif /* SCRAVTRAP_HPP */

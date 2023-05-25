@@ -6,7 +6,6 @@
 
 class FragTrap : virtual public ClapTrap {
 	public:
-		FragTrap();
 		FragTrap( const std::string newName);
 		~FragTrap();
 		FragTrap( const FragTrap &newClapTrap );
