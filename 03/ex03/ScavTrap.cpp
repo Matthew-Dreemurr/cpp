@@ -6,9 +6,9 @@ ScavTrap::ScavTrap ( const std::string newName )
 :	ClapTrap(newName)
 {
 	this->name = newName;
-	this->hp = ClapTrap::hp;
-	this->ep = 100;
-	this->ad = 30;
+	this->hp = 100;
+	this->ep = 50;
+	this->ad = 20;
 	std::cout << "[ScavTrap] A new Hero is born, we call it " << name << ", he as " << hp << " hit points, " << ep << " energy points and " << ad << " attack damage" << std::endl;
 }
 
@@ -36,5 +36,9 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &newClapTrap )
 }
 
 void ScavTrap::guardGate() {
+	if (!hp) {
+		std::cout << "[ScavTrap] " << this->name << " is death, he cannot be in Gate keeper mode..." << std::endl;
+		return;
+	}
 	std::cout << "[ScavTrap] " << this->name << " is now in Gate keeper mode." << std::endl;
 };

@@ -36,5 +36,9 @@ FragTrap& FragTrap::operator=(const FragTrap &newClapTrap )
 }
 
 void FragTrap::highFivesGuys() {
+	if (!hp) {
+		std::cout << "[FragTrap] " << this->name << " is death, he cannot make a high fives request..." << std::endl;
+		return;
+	}
 	std::cout << "[FragTrap] " << this->name << " make a high fives request ?!" << std::endl;
 };
