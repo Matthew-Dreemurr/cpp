@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 
 Animal::Animal()
-: type("thing"), sound("thing.mp3 not found...")
+: type("thing")
 {
 	std::cout << "[Animal] And God Created the " << type << "." << std::endl;
 }
@@ -29,11 +29,10 @@ Animal &Animal::operator=(Animal &newAnimal)
 	return *this;
 }
 
-void Animal::makeSound() {
-
-	std::cout << "[Animal] The " << this->type << " do " << this->sound << std::endl;
+void Animal::makeSound() const {
+	std::cout << "[Animal] ...." << std::endl;
 }
 
-std::string Animal::getType(void) {
-	return this->type; 
+std::string Animal::getType(void) const {
+	return this->type;
 }
