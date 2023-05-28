@@ -1,6 +1,7 @@
 #include "Cat.hpp"
 
 Cat::Cat()
+: Animal()
 {
 	this->type = "Cat";
 	this->brain = new Brain();
@@ -8,12 +9,14 @@ Cat::Cat()
 }
 
 Cat::Cat (const Cat &newDog)
+: Animal()
 {
 	type = newDog.type;
 	std::cout << "[Cat] God multiplied the " << this->type << "." << std::endl;
 }
 
-Cat &Cat::operator=(Cat &newDog) {
+Cat &Cat::operator=(Cat &newDog) 
+{
 	this->type = newDog.type;
 	std::cout << "[Cat] God made the " << this->type << " multiply." << std::endl;
 	return *this;

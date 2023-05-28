@@ -2,6 +2,7 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 int main()
 {
@@ -27,7 +28,5 @@ int main()
 		std::cout << "[" << i << "]" << std::endl;
 		delete array[i];
 	}
-	
-	system("leaks test");
 	return 0;
 }

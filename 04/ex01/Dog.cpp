@@ -1,6 +1,7 @@
 #include "Dog.hpp"
 
 Dog::Dog()
+: Animal()
 {
 	this->type = "Dog";
 	this->brain = new Brain();
@@ -8,6 +9,7 @@ Dog::Dog()
 }
 
 Dog::Dog (const Dog &newDog)
+: Animal()
 {
 	type = newDog.type;
 	std::cout << "[Dog] God multiplied the " << this->type << "." << std::endl;

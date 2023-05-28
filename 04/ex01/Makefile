@@ -2,7 +2,7 @@ NAME = test
 
 SRC = Animal.cpp Brain.cpp Cat.cpp Dog.cpp main.cpp
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME) 
