@@ -35,9 +35,22 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &newClapTrap )
 	return *this;
 }
 
+void ScavTrap::attack( const std::string& target ) {
+	if (!hp) {
+		std::cout << "[ScavTrap] " << this->name << " is death, death cannot figth..." << std::endl;
+		return;
+	}
+	// Attacking and repairing cost 1 energy point
+	if (removePoints(this->ep, 1)) {
+		std::cout << "[ScavTrap] " << this->name << " attacks " << target << ", causing " << this->ad << " points of damage! " << ep << " energie points left" << std::endl;
+		return;
+	}
+	std::cout << "[ScavTrap] " << this->name << " doesn't have enough energy to attack" << std::endl;
+}
+
 void ScavTrap::guardGate() {
 	if (!hp) {
-		std::cout << "[ScavTrap] " << this->name << " is death, he cannot be in Gate keeper mode..." << std::endl;
+		std::cout << "[ScavTrap] " << this->name << " is death, cannot set Gate keeper mode..." << std::endl;
 		return;
 	}
 	std::cout << "[ScavTrap] " << this->name << " is now in Gate keeper mode." << std::endl;
