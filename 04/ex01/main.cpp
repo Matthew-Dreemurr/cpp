@@ -6,7 +6,7 @@
 
 int main()
 {
-	const int nb = 100;
+	const int nb = 6;
 	const Animal *array[nb];
 
 	std::cout << "-+=+-+=+-+= [New Animals] =+-+=+-+=+-" << std::endl;
@@ -20,7 +20,6 @@ int main()
 		}
 		array[i] = new Dog();
 	}
-	
 	std::cout << "-+=+-+=+-+= [Delete Animals] =+-+=+-+=+-" << std::endl;
 
 	for (size_t i = 0; i < nb; i++)
@@ -28,5 +27,12 @@ int main()
 		std::cout << "[" << i << "]" << std::endl;
 		delete array[i];
 	}
+
+	std::cout << "-+=+-+=+-+= [Copy Animals] =+-+=+-+=+-" << std::endl;
+	const Animal test = Dog();
+	std::cout << "-======-" << std::endl;
+	Animal test_copy = test;
+
+	std::cout << "-+=+-+=+-+= [END] =+-+=+-+=+-" << std::endl;
 	return 0;
 }
