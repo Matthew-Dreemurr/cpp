@@ -17,6 +17,7 @@ Dog::Dog (const Dog &newDog)
 
 Dog &Dog::operator=(Dog &newDog) {
 	this->type = newDog.type;
+	this->brain = new Brain(*newDog.brain);
 	std::cout << "[Dog] God made the " << this->type << " multiply." << std::endl;
 	return *this;
 }
