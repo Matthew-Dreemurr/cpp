@@ -10,11 +10,11 @@ Brain::~Brain(void) {
 	delete [] this->ideas;
 }
 
-Brain& Brain::operator=(const Brain& newBrain) {
+Brain* Brain::operator=(const Brain& newBrain) {
 	for (size_t i = 0; i < 100; i++)
 	{
 		this->ideas[i] = newBrain.ideas[i];
 	}
 	std::cout << "[Brain] Brain cloned" << std::endl;
-	return *this;
+	return this;
 }

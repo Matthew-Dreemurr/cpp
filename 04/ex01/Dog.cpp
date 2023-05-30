@@ -11,6 +11,7 @@ Dog::Dog()
 Dog::Dog (const Dog &newDog)
 : Animal()
 {
+	this->brain = new Brain();
 	type = newDog.type;
 	std::cout << "[Dog] God multiplied the " << this->type << "." << std::endl;
 }

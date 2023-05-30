@@ -29,9 +29,11 @@ int main()
 	}
 
 	std::cout << "-+=+-+=+-+= [Copy Animals] =+-+=+-+=+-" << std::endl;
-	const Animal test = Dog();
+	const Dog test = Dog();
+	test.makeSound();
 	std::cout << "-======-" << std::endl;
-	Animal test_copy = test;
+	Dog test_copy = test;
+	test_copy.makeSound();
 
 	std::cout << "-+=+-+=+-+= [END] =+-+=+-+=+-" << std::endl;
 	return 0;

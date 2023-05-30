@@ -9,7 +9,7 @@ class Brain
 		std::string **ideas;
 	public:
 		Brain(void);
-		Brain& operator=(const Brain &);
+		Brain* operator=(const Brain &);
 		~Brain(void);
 };
 
