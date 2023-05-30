@@ -28,12 +28,19 @@ int main()
 		delete array[i];
 	}
 
-	std::cout << "-+=+-+=+-+= [Copy Animals] =+-+=+-+=+-" << std::endl;
-	const Dog test = Dog();
-	test.makeSound();
+	std::cout << "-+=+-+=+-+= [Copy Dog] =+-+=+-+=+-" << std::endl;
+	const Dog test_dog = Dog();
+	test_dog.makeSound();
 	std::cout << "-======-" << std::endl;
-	Dog test_copy = test;
-	test_copy.makeSound();
+	Dog test_copy_dog = test_dog;
+	test_copy_dog.makeSound();
+	
+	std::cout << "-+=+-+=+-+= [Copy Cat] =+-+=+-+=+-" << std::endl;
+	const Cat test_cat = Cat();
+	test_cat.makeSound();
+	std::cout << "-======-" << std::endl;
+	Cat test_copy_cat(test_cat) ;
+	test_copy_cat.makeSound();
 
 	std::cout << "-+=+-+=+-+= [END] =+-+=+-+=+-" << std::endl;
 	return 0;

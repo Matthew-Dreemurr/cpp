@@ -11,6 +11,7 @@ Cat::Cat()
 Cat::Cat (const Cat &newDog)
 : Animal()
 {
+	this->brain = new Brain();
 	type = newDog.type;
 	std::cout << "[Cat] God multiplied the " << this->type << "." << std::endl;
 }
@@ -18,6 +19,7 @@ Cat::Cat (const Cat &newDog)
 Cat &Cat::operator=(Cat &newDog) 
 {
 	this->type = newDog.type;
+	this->brain = new Brain(*newDog.brain);
 	std::cout << "[Cat] God made the " << this->type << " multiply." << std::endl;
 	return *this;
 }

@@ -10,6 +10,15 @@ Brain::~Brain(void) {
 	delete [] this->ideas;
 }
 
+Brain::Brain(const Brain &newBrain) {
+	std::cout << "[Brain] Create new Brain with 100 ideas slot" << std::endl;
+	this->ideas = new std::string*[100];
+	for (size_t i = 0; i < 100; i++)
+	{
+		this->ideas[i] = newBrain.ideas[i];
+	}
+}
+
 Brain* Brain::operator=(const Brain& newBrain) {
 	for (size_t i = 0; i < 100; i++)
 	{
