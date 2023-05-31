@@ -1,5 +1,9 @@
 #ifndef ICHARACTER_H
 #define ICHARACTER_H
+
+#include <iostream>
+#include "../AMateria/AMateria.hpp"
+
 class ICharacter
 {
 	public:
