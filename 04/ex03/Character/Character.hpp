@@ -11,6 +11,7 @@ class Character: public ICharacter
 {
 private:
 	AMateria	*inventory[INVENTORY_SLOTS] = {nullptr};
+	AMateria	*ground[INVENTORY_SLOTS] = {nullptr};
 	std::string	name;
 public:
 	std::string const & getName() const;

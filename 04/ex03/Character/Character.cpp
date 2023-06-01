@@ -27,6 +27,7 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
+
 	if (idx < 0 && idx > INVENTORY_SLOTS) {
 		return;
 	}
@@ -34,12 +35,30 @@ void Character::unequip(int idx) {
 	if (!this->inventory[idx]) {
 		return;
 	}
-	//WIP
-	//TODO choose a behaviour
-	delete this->inventory[idx];
+
+	// Find a free slot on the ground
+	int index = 0;
+	while (index < INVENTORY_SLOTS) {
+		if (!this->ground[index]) {
+			this->ground[index] = this->inventory[idx];
+			break;
+		}
+		index++;
+	}
+
+	if (index > INVENTORY_SLOTS) {
+		std::cout << "[Character] The ground is full!" << std::endl;
+		return;
+	}
+
 	this->inventory[idx] = nullptr;
 
 }
 
 void Character::use(int idx, ICharacter& target) {
+	if (!this->inventory[idx]) {
+		std::cout << "[Character] This slot is empty [" << idx << "]" << std::endl;
+		return;
+	}
+	this->inventory[idx]->use(*this);
 }
