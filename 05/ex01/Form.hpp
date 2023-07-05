@@ -17,12 +17,14 @@ class Form
 	};
 
 private:
-	std::string	name;
+	const std::string	name;
 	int			signed_grade;
 	int			execute_grade;
 	bool		is_signed;
 public:
 	Form(std::string name, int signed_grade, int execute_grade);
+	Form(const Form & newForm);
+	Form& operator=(const Form & newForm);
 	~Form();
 	void beSigned(const Bureaucrat & bureaucrat);
 	const std::string& getName() const;
