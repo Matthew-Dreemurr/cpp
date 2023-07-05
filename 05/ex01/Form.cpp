@@ -26,3 +26,27 @@ Form::GradeTooLowException::GradeTooLowException(const std::string & grade)
 Form::GradeTooLowException::GradeTooLowException(const Form & data)
 : std::runtime_error("Grade too low [" + data.getName() + "] : " + std::to_string(data.getGrade()) + " < 150")
 {}
+
+const std::string& Form::getName() const {
+	return this->name;
+}
+
+const int Form::getSignedGrade() const {
+	return this->signed_grade;
+}
+
+const int Form::getExecuteGrade() const {
+	return this->execute_grade;
+}
+
+std::ostream& operator<<(std::ostream &os, const Form & data) {
+	return os << "[Form] " << data.getName() << " require grade " << data.getSignedGrade() << " to sign and require grade " << data.getExecuteGrade() << " to execute" << std::endl;
+}
+
+void	Form::beSigned(const Bureaucrat & bureaucrat) {
+	if (bureaucrat.getGrade() <= this->signed_grade) {
+		//TODO 
+		return;
+	}
+	//TODO
+}

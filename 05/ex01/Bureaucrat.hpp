@@ -33,7 +33,7 @@ public:
 	Bureaucrat*	operator=(Bureaucrat &);
 
 	const std::string& getName() const;
-	const int& getGrade() const;
+	const int getGrade() const;
 
 	void promote();
 	void demote();
