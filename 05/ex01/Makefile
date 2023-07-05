@@ -1,6 +1,6 @@
 NAME = test
 
-SRC = Bureaucrat.cpp main.cpp
+SRC = Bureaucrat.cpp Form.cpp main.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 

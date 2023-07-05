@@ -9,19 +9,11 @@ class Form
 {
 	class GradeTooHighException: public std::runtime_error {
 		public:
-			GradeTooHighException(const int grade);
-
-			GradeTooHighException(const std::string & grade);
-
-			GradeTooHighException(const Form & data);
+			GradeTooHighException(const Form & data, const Bureaucrat & user);
 	};
 	class GradeTooLowException: public std::runtime_error {
 		public:
-			GradeTooLowException(const int grade);
-
-			GradeTooLowException(const std::string & grade);
-
-			GradeTooLowException(const Form & data);
+			GradeTooLowException(const Form & data, const Bureaucrat & user);
 	};
 
 private:
@@ -30,9 +22,9 @@ private:
 	int			signed_grade;
 	int			execute_grade;
 public:
-	Form();
+	Form(std::string name, int signed_grade, int execute_grade);
 	~Form();
-	void	beSigned(const Bureaucrat & bureaucrat);
+	void beSigned(const Bureaucrat & bureaucrat);
 	const std::string& getName() const;
 	const int getSignedGrade() const;
 	const int getExecuteGrade() const;

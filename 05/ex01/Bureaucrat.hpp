@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -37,6 +38,8 @@ public:
 
 	void promote();
 	void demote();
+
+	void signForm(Form & form);
 
 	~Bureaucrat();
 };

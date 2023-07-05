@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main (void) {
@@ -6,32 +7,19 @@ int main (void) {
 try {
 		Bureaucrat test("Keven", 12);
 		std::cout << test << std::endl;
+
+		Form form("test1", 15, 10);
+		test.signForm(form);
 	} catch (std::exception & err) {
 		std::cout << err.what() << std::endl;
 	}
 
-	try {
-		Bureaucrat test("Keven", 0);
-	} catch (std::exception & err) {
-		std::cout << err.what() << std::endl;
-	}
+try {
+		Bureaucrat test("Keven", 50);
+		std::cout << test << std::endl;
 
-	try {
-		Bureaucrat test("Keven", 151);
-	} catch (std::exception & err) {
-		std::cout << err.what() << std::endl;
-	}
-
-	try {
-		Bureaucrat test("Keven", 150);
-		test.demote();
-	} catch (std::exception & err) {
-		std::cout << err.what() << std::endl;
-	}
-
-	try {
-		Bureaucrat test("Keven", 1);
-		test.promote();
+		Form form("test1", 15, 10);
+		test.signForm(form);
 	} catch (std::exception & err) {
 		std::cout << err.what() << std::endl;
 	}

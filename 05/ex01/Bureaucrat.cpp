@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <stdexcept>
 #include <limits>
 #include <iostream>
@@ -62,6 +63,18 @@ void Bureaucrat::demote() {
 		throw Bureaucrat::GradeTooLowException(newGrade);
 	}
 	this->grade = newGrade;
+}
+
+void Bureaucrat::signForm(Form & form) {
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->name << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->name << " couldn't sign" << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const int grade)
