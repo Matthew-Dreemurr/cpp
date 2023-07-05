@@ -3,6 +3,10 @@
 #include <limits>
 #include <iostream>
 
+Bureaucrat::Bureaucrat()
+: name("No name"), grade(150)
+{}
+
 Bureaucrat::Bureaucrat(std::string newName, int newGrade)
 : name(newName.empty() ? "No name" : newName), grade(newGrade)
 {
@@ -21,13 +25,16 @@ Bureaucrat::~Bureaucrat() {
 	std::cout << "[DEBUG] Bureaucrat::~Bureaucrat() " << *this << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &newBureaucrat) {
-(void) newBureaucrat;
+Bureaucrat::Bureaucrat(const Bureaucrat &newBureaucrat) 
+: name(newBureaucrat.name), grade(newBureaucrat.grade)
+{
+	std::cout << this->name << " copy constructor" << std::endl;
 }
 
-Bureaucrat*	Bureaucrat::operator=(Bureaucrat &newBureaucrat) {
-(void) newBureaucrat;
-return 0;
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &newBureaucrat) {
+	this->grade = newBureaucrat.grade;
+	std::cout << this->name << " operator= constructor" << std::endl;
+	return *this;
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &data) {

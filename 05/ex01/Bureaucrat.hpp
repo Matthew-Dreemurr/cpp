@@ -30,9 +30,10 @@ private:
 	int					grade;
 
 public:
+	Bureaucrat();
 	Bureaucrat(std::string newName, int newGrade);
 	Bureaucrat(const Bureaucrat &newBureaucrat);
-	Bureaucrat*	operator=(Bureaucrat &);
+	Bureaucrat&	operator=(const Bureaucrat &);
 
 	const std::string& getName() const;
 	int getGrade() const;
