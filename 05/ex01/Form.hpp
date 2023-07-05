@@ -1,9 +1,9 @@
 #ifndef FORM_H
 #define FORM_H
 
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <stdexcept>
-#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -18,17 +18,17 @@ class Form
 
 private:
 	std::string	name;
-	bool		is_signed;
 	int			signed_grade;
 	int			execute_grade;
+	bool		is_signed;
 public:
 	Form(std::string name, int signed_grade, int execute_grade);
 	~Form();
 	void beSigned(const Bureaucrat & bureaucrat);
 	const std::string& getName() const;
-	const int getSignedGrade() const;
-	const int getExecuteGrade() const;
-	const bool isSigned() const;
+	int getSignedGrade() const;
+	int getExecuteGrade() const;
+	bool isSigned() const;
 };
 
 std::ostream& operator<<(std::ostream &os, const Form & data);

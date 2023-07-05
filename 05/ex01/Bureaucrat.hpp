@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -34,7 +35,7 @@ public:
 	Bureaucrat*	operator=(Bureaucrat &);
 
 	const std::string& getName() const;
-	const int getGrade() const;
+	int getGrade() const;
 
 	void promote();
 	void demote();
