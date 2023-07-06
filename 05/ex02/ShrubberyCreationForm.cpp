@@ -2,7 +2,9 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 : Form("Shrubbery", 145, 137)
-{}
+{
+	std::cout << "[" << this->getName() << "] new form" << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & newForm)
 : Form(newForm)
@@ -14,5 +16,10 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "Destroy " << this->getName() << std::endl;
+	std::cout << "[" << this->getName() << "] delete form" << std::endl;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+	Form::execute(executor);
+	std::cout << "[" << this->getName() << "] execute suff" << std::endl;
 }

@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 
 int main (void) {
@@ -17,7 +18,19 @@ try {
 	} catch (std::exception & err) {
 		std::cout << err.what() << std::endl;
 	}
-	
+
+	try {
+		Bureaucrat test("Keven", 150);
+		std::cout << test << std::endl;
+
+		RobotomyRequestForm form;
+		std::cout << test << std::endl;
+
+		test.signForm(form);
+		test.executeForm(form);
+	} catch (std::exception & err) {
+		std::cout << err.what() << std::endl;
+	}
 
 	return 0;
 }
