@@ -9,11 +9,11 @@ class Form
 {
 	class GradeTooHighException: public std::runtime_error {
 		public:
-			GradeTooHighException(const Form & data, const Bureaucrat & user);
+			GradeTooHighException(const Bureaucrat & user, int required_grade);
 	};
 	class GradeTooLowException: public std::runtime_error {
 		public:
-			GradeTooLowException(const Form & data, const Bureaucrat & user);
+			GradeTooLowException(const Bureaucrat & user, int required_grade);
 	};
 
 private:

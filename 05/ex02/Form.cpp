@@ -2,18 +2,18 @@
 #include <stdexcept>
 #include <iostream>
 
-Form::GradeTooHighException::GradeTooHighException(const Form & data, const Bureaucrat & user)
-: std::runtime_error("require grade " + std::to_string(data.signed_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
+Form::GradeTooHighException::GradeTooHighException(const Bureaucrat & user, int required_grade)
+: std::runtime_error("require grade " + std::to_string(required_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
 {}
 
-Form::GradeTooLowException::GradeTooLowException(const Form & data, const Bureaucrat & user)
-: std::runtime_error("require grade under " + std::to_string(data.signed_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
+Form::GradeTooLowException::GradeTooLowException(const Bureaucrat & user, int required_grade)
+: std::runtime_error("require grade under " + std::to_string(required_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
 {}
 
 Form::Form(std::string name, int signed_grade, int execute_grade)
 : name(name), signed_grade(signed_grade), execute_grade(execute_grade), is_signed(false)
 {
-	std::cout << "[Form] new " << this->name << " signed grade " << this->signed_grade << " execute grade " << this->execute_grade << std::endl;
+	std::cout << "[Form] new " << this->name << ", signed grade " << this->signed_grade << ", execute grade " << this->execute_grade << std::endl;
 }
 
 Form::Form(const Form &newBureaucrat) 
@@ -59,11 +59,11 @@ void	Form::beSigned(const Bureaucrat & bureaucrat) {
 		this->is_signed = true;
 		return;
 	}
-	throw Form::GradeTooLowException(*this, bureaucrat);
+	throw Form::GradeTooLowException(bureaucrat, this->signed_grade);
 }
 
 void Form::execute(Bureaucrat const & executor) const {
 	if (executor.getGrade() > this->execute_grade) {
-		throw Form::GradeTooLowException(*this, executor);
+		throw Form::GradeTooLowException(executor, this->execute_grade);
 	}
 }
