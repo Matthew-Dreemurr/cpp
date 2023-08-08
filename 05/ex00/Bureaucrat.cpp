@@ -75,7 +75,7 @@ void Bureaucrat::demote() {
 
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const int grade)
-: std::runtime_error("Grade too high: " + std::to_string(grade) + " < 1")
+: std::runtime_error("Grade too high: " + INT_TO_STR(grade) + " < 1")
 {}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string & grade)
@@ -83,12 +83,12 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string & gra
 {}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const Bureaucrat & data)
-: std::runtime_error("Grade too high: [" + data.getName() + "] : " + std::to_string(data.getGrade()) + " < 1")
+: std::runtime_error("Grade too high: [" + data.getName() + "] : " + INT_TO_STR(data.getGrade()) + " < 1")
 {}
 
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(const int grade)
-: std::runtime_error("Grade too low: " + std::to_string(grade) + " < 150")
+: std::runtime_error("Grade too low: " + INT_TO_STR(grade) + " < 150")
 {}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string & grade)
@@ -96,5 +96,5 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string & grade
 {}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(const Bureaucrat & data)
-: std::runtime_error("Grade too low [" + data.getName() + "] : " + std::to_string(data.getGrade()) + " < 150")
+: std::runtime_error("Grade too low [" + data.getName() + "] : " + INT_TO_STR(data.getGrade()) + " < 150")
 {}

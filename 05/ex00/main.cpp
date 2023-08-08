@@ -35,6 +35,7 @@ try {
 
 		test_copy2.demote();
 		std::cout << test_copy2 << std::endl;
+		delete test_copy;
 
 	} catch (std::exception & err) {
 		std::cout << err.what() << std::endl;

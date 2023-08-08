@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <sstream>
+
+#define INT_TO_STR(x) static_cast<std::ostringstream &>(std::ostringstream() << x).str()
 
 class Bureaucrat
 {

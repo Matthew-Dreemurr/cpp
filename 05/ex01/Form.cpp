@@ -3,11 +3,11 @@
 #include <iostream>
 
 Form::GradeTooHighException::GradeTooHighException(const Form & data, const Bureaucrat & user)
-: std::runtime_error("require grade " + std::to_string(data.signed_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
+: std::runtime_error("require grade " + INT_TO_STR(data.signed_grade) + " but has " + INT_TO_STR(user.getGrade()) + " grade")
 {}
 
 Form::GradeTooLowException::GradeTooLowException(const Form & data, const Bureaucrat & user)
-: std::runtime_error("require grade under " + std::to_string(data.signed_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
+: std::runtime_error("require grade under " + INT_TO_STR(data.signed_grade) + " but has " + INT_TO_STR(user.getGrade()) + " grade")
 {}
 
 Form::Form(std::string name, int signed_grade, int execute_grade)

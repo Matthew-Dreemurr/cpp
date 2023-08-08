@@ -1,4 +1,7 @@
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 
 RobotomyRequestForm::RobotomyRequestForm()
 : Form("Robotomy", 72, 45)
@@ -22,6 +25,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);
 
+	std::srand(std::time(NULL));
 	std::cout << "Bzzzzzzzzzzzzzzz" << std::endl;
 	if (rand() % 2)
 		std::cout << executor.getName() << " has been successfully robotomized" << std::endl;
