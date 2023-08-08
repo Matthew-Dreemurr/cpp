@@ -3,8 +3,8 @@
 #include <fstream>
 #include <ostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-: Form("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+: Form("Shrubbery", 145, 137), target(target)
 {
 	std::cout << "[" << this->getName() << "] new form" << std::endl;
 }
@@ -25,7 +25,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);
 
-	std::ofstream file((executor.getName() + "_shrubbery").c_str());
+	std::ofstream file((this->target + "_shrubbery").c_str());
 	file << "               ,@@@@@@@," << std::endl
 	<< "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl
 	<< "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl

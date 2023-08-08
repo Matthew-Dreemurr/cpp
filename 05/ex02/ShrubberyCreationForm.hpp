@@ -6,9 +6,9 @@
 class ShrubberyCreationForm: public virtual Form
 {
 private:
-	/* data */
+	const std::string target;
 public:
-	ShrubberyCreationForm();
+	ShrubberyCreationForm(std::string target);
 	ShrubberyCreationForm(const ShrubberyCreationForm & newForm);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm & newForm);
 	~ShrubberyCreationForm();

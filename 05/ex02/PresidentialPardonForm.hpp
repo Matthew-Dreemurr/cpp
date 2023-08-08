@@ -6,9 +6,9 @@
 class PresidentialPardonForm: public virtual Form
 {
 private:
-	/* data */
+	const std::string target;
 public:
-	PresidentialPardonForm();
+	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(const PresidentialPardonForm& newForm);
 	PresidentialPardonForm & operator=(const PresidentialPardonForm& newForm);
 	~PresidentialPardonForm();

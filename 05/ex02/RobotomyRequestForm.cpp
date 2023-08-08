@@ -3,8 +3,8 @@
 #include <ctime>
 #include <iostream>
 
-RobotomyRequestForm::RobotomyRequestForm()
-: Form("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+: Form("Robotomy", 72, 45), target(target)
 {
 	std::cout << "[" << this->getName() << "] new form" << std::endl;
 }
@@ -28,7 +28,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	std::srand(std::time(NULL));
 	std::cout << "Bzzzzzzzzzzzzzzz" << std::endl;
 	if (rand() % 2)
-		std::cout << executor.getName() << " has been successfully robotomized" << std::endl;
+		std::cout << this->target << " has been successfully robotomized" << std::endl;
 	else
-		std::cout << executor.getName() << " robotomy failed!" << std::endl;
+		std::cout << this->target << " robotomy failed!" << std::endl;
 }

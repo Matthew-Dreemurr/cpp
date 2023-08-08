@@ -6,9 +6,9 @@
 class RobotomyRequestForm: public virtual Form
 {
 private:
-	/* data */
+	const std::string target;
 public:
-	RobotomyRequestForm();
+	RobotomyRequestForm(std::string target);
 	RobotomyRequestForm(const RobotomyRequestForm & newForm);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm & newForm);
 	~RobotomyRequestForm();

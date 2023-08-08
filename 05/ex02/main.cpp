@@ -49,16 +49,16 @@ try {
 int main (void) {
 // ShrubberyCreationForm
 // Échelons requis : signature 145, exécution 137
-	ShrubberyCreationForm shrubbery;
+	ShrubberyCreationForm shrubbery("The target");
 	test(137, shrubbery, "ShrubberyCreationForm");
 
 // RobotomyRequestForm
 // Échelons requis : signature 72, exécution 45
-	RobotomyRequestForm robotomy;
+	RobotomyRequestForm robotomy("The target");
 	test(45, robotomy, "RobotomyRequestForm");
 
 // PresidentialPardonForm
 // Échelons requis : signature 25, exécution 5
-	PresidentialPardonForm presidential;
+	PresidentialPardonForm presidential("The target");
 	test(5, presidential, "PresidentialPardonForm");
 }
