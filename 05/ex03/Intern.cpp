@@ -4,6 +4,9 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+#define CRESET "\e[0m"
+#define RED "\e[0;31m"
+
 Intern::Intern()
 {}
 
@@ -50,10 +53,10 @@ Form* Intern::makeForm(std::string formName, std::string target) {
 			return (functionPtr[i])(target);
 		}
 	}
-
+	throw Intern::FormDontExist(formName);
 	return NULL;
 }
 
 Intern::FormDontExist::FormDontExist(std::string formName)
-: std::runtime_error("Form " + formName + " doesn't exist!")
+: std::runtime_error(RED"Form " + formName + " doesn't exist!" + CRESET)
 {}

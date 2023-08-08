@@ -70,4 +70,16 @@ int main (void) {
 	Form *presidential = intern.makeForm("presidential pardon", "The target");
 	test(5, presidential, "PresidentialPardonForm");
 	delete presidential;
+
+	try
+	{
+		Form *presidential = intern.makeForm("asdfadfadf", "The target");
+		delete presidential;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+
 }
