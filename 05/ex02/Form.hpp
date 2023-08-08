@@ -15,6 +15,10 @@ class Form
 		public:
 			GradeTooLowException(const Bureaucrat & user, int required_grade);
 	};
+	class FormNotSigned: public std::runtime_error {
+		public:
+			FormNotSigned(const Form & form);
+	};
 
 private:
 	const std::string	name;
@@ -31,7 +35,7 @@ public:
 	int getSignedGrade() const;
 	int getExecuteGrade() const;
 	bool isSigned() const;
-	void execute(Bureaucrat const & executor) const;
+	virtual void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream& operator<<(std::ostream &os, const Form & data);

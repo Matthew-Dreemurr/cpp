@@ -9,9 +9,7 @@
 #define YEL "\e[0;33m"
 #define BLU "\e[0;34m"
 
-void test(int grade, std::string test_name) {
-	int nb_test = 0;
-
+void test(int grade, Form & form, std::string test_name) {
 	std::cout << BLU << "<======================================================>" << CRESET << std::endl;
 	std::cout << BLU << "<===== Test " << test_name << CRESET << std::endl;
 	std::cout << BLU << "<======================================================>" << CRESET << std::endl;
@@ -19,7 +17,6 @@ void test(int grade, std::string test_name) {
 try {
 
 		std::cout << std::endl << std::endl;
-		std::cout << GRN << "===== Test " << ++nb_test << " =====" << CRESET << std::endl;
 
 		std::cout << YEL << "===== Test constructor =====" << CRESET << std::endl;
 
@@ -28,8 +25,11 @@ try {
 
 		std::cout << YEL << "===== Test Shrubbery creation from constructor =====" << CRESET << std::endl;
 
-		ShrubberyCreationForm form;
-		std::cout << test << std::endl;
+		std::cout << form << std::endl;
+
+		std::cout << YEL << "===== Test executeForm befor singed =====" << CRESET << std::endl;
+
+		test.executeForm(form);
 
 		std::cout << YEL << "===== Test signForm =====" << CRESET << std::endl;
 
@@ -43,61 +43,22 @@ try {
 		std::cout << err.what() << std::endl;
 	}
 
-	try {
-
-		std::cout << std::endl << std::endl;
-		std::cout << GRN << "===== Test " << ++nb_test << " =====" << CRESET << std::endl;
-
-		Bureaucrat test("Keven", grade);
-		std::cout << test << std::endl;
-
-		std::cout << YEL << "===== Test Robotomy request from constructor =====" << CRESET << std::endl;
-
-		RobotomyRequestForm form;
-		std::cout << test << std::endl;
-
-		std::cout << YEL << "===== Test signForm =====" << CRESET << std::endl;
-
-		test.signForm(form);
-
-		std::cout << YEL << "===== Test executeForm =====" << CRESET << std::endl;
-
-		test.executeForm(form);
-
-	} catch (std::exception & err) {
-		std::cout << err.what() << std::endl;
-	}
-
-	try {
-
-		std::cout << std::endl << std::endl;
-		std::cout << GRN << "===== Test " << ++nb_test << " =====" << CRESET << std::endl;
-
-		Bureaucrat test("Keven", grade);
-		std::cout << test << std::endl;
-
-		std::cout << YEL << "===== Test Presidential pardon from constructor =====" << CRESET << std::endl;
-
-		PresidentialPardonForm form;
-		std::cout << test << std::endl;
-
-		std::cout << YEL << "===== Test signForm =====" << CRESET << std::endl;
-
-		test.signForm(form);
-
-		std::cout << YEL << "===== Test executeForm =====" << CRESET << std::endl;
-
-		test.executeForm(form);
-
-	} catch (std::exception & err) {
-		std::cout << err.what() << std::endl;
-	}
 	std::cout << std::endl << std::endl;
 }
 
 int main (void) {
-	test(1, "Good grade");
-	test(150, "Grade too low to sign or execute");
-	test(0, "Grade higher than 1");
-	test(151, "Grade lower than 150");
+// ShrubberyCreationForm
+// Échelons requis : signature 145, exécution 137
+	ShrubberyCreationForm shrubbery;
+	test(137, shrubbery, "ShrubberyCreationForm");
+
+// RobotomyRequestForm
+// Échelons requis : signature 72, exécution 45
+	RobotomyRequestForm robotomy;
+	test(45, robotomy, "RobotomyRequestForm");
+
+// PresidentialPardonForm
+// Échelons requis : signature 25, exécution 5
+	PresidentialPardonForm presidential;
+	test(5, presidential, "PresidentialPardonForm");
 }

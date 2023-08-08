@@ -10,6 +10,10 @@ Form::GradeTooLowException::GradeTooLowException(const Bureaucrat & user, int re
 : std::runtime_error("require grade under " + std::to_string(required_grade) + " but has " + std::to_string(user.getGrade()) + " grade")
 {}
 
+Form::FormNotSigned::FormNotSigned(const Form & form)
+: std::runtime_error("form " + form.getName() + " is not signed")
+{}
+
 Form::Form(std::string name, int signed_grade, int execute_grade)
 : name(name), signed_grade(signed_grade), execute_grade(execute_grade), is_signed(false)
 {
@@ -65,5 +69,8 @@ void	Form::beSigned(const Bureaucrat & bureaucrat) {
 void Form::execute(Bureaucrat const & executor) const {
 	if (executor.getGrade() > this->execute_grade) {
 		throw Form::GradeTooLowException(executor, this->execute_grade);
+	}
+	if (!this->is_signed) {
+		throw Form::FormNotSigned(*this);
 	}
 }

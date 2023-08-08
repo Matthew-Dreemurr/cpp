@@ -6,6 +6,7 @@
 
 #define CRESET "\e[0m"
 #define RED "\e[0;31m"
+#define MAG "\e[0;35m"
 
 Bureaucrat::Bureaucrat()
 : name("No name"), grade(150)
@@ -82,7 +83,7 @@ void Bureaucrat::signForm(Form & form) {
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->name << " signed " << form.getName() << std::endl;
+		std::cout << MAG << this->name << " signed " << form.getName() << CRESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -95,7 +96,7 @@ void Bureaucrat::executeForm(Form const & form) {
 	try
 	{
 		form.execute(*this);
-		std::cout << this->name << " executed " << form.getName() << std::endl;
+		std::cout << MAG << this->name << " executed " << form.getName() << CRESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{

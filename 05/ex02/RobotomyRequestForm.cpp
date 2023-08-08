@@ -21,5 +21,10 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);
-	std::cout << "[" << this->getName() << "] execute suff" << std::endl;
+
+	std::cout << "Bzzzzzzzzzzzzzzz" << std::endl;
+	if (rand() % 2)
+		std::cout << executor.getName() << " has been successfully robotomized" << std::endl;
+	else
+		std::cout << executor.getName() << " robotomy failed!" << std::endl;
 }
