@@ -29,7 +29,7 @@ public:
 	Form(std::string name, int signed_grade, int execute_grade);
 	Form(const Form & newForm);
 	Form& operator=(const Form & newForm);
-	~Form();
+	virtual ~Form();
 	void beSigned(const Bureaucrat & bureaucrat);
 	const std::string& getName() const;
 	int getSignedGrade() const;

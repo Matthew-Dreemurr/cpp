@@ -1,3 +1,4 @@
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -9,7 +10,7 @@
 #define YEL "\e[0;33m"
 #define BLU "\e[0;34m"
 
-void test(int grade, Form & form, std::string test_name) {
+void test(int grade, Form * form, std::string test_name) {
 	std::cout << BLU << "<======================================================>" << CRESET << std::endl;
 	std::cout << BLU << "<===== Test " << test_name << CRESET << std::endl;
 	std::cout << BLU << "<======================================================>" << CRESET << std::endl;
@@ -25,19 +26,19 @@ try {
 
 		std::cout << YEL << "===== Test Shrubbery creation from constructor =====" << CRESET << std::endl;
 
-		std::cout << form << std::endl;
+		std::cout << *form << std::endl;
 
 		std::cout << YEL << "===== Test executeForm befor singed =====" << CRESET << std::endl;
 
-		test.executeForm(form);
+		test.executeForm(*form);
 
 		std::cout << YEL << "===== Test signForm =====" << CRESET << std::endl;
 
-		test.signForm(form);
+		test.signForm(*form);
 
 		std::cout << YEL << "===== Test executeForm =====" << CRESET << std::endl;
 
-		test.executeForm(form);
+		test.executeForm(*form);
 
 	} catch (std::exception & err) {
 		std::cout << err.what() << std::endl;
@@ -47,18 +48,26 @@ try {
 }
 
 int main (void) {
+	Intern intern;
+
 // ShrubberyCreationForm
 // Échelons requis : signature 145, exécution 137
-	ShrubberyCreationForm shrubbery("The target");
+	// ShrubberyCreationForm shrubbery("The target");
+	Form *shrubbery = intern.makeForm("shrubbery creation", "The target");
 	test(137, shrubbery, "ShrubberyCreationForm");
+	delete shrubbery;
 
 // RobotomyRequestForm
 // Échelons requis : signature 72, exécution 45
-	RobotomyRequestForm robotomy("The target");
+	// RobotomyRequestForm robotomy("The target");
+	Form *robotomy = intern.makeForm("robotomy request", "The target");
 	test(45, robotomy, "RobotomyRequestForm");
+	delete robotomy;
 
 // PresidentialPardonForm
 // Échelons requis : signature 25, exécution 5
-	PresidentialPardonForm presidential("The target");
+	// PresidentialPardonForm presidential("The target");
+	Form *presidential = intern.makeForm("presidential pardon", "The target");
 	test(5, presidential, "PresidentialPardonForm");
+	delete presidential;
 }
