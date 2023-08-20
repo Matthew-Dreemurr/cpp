@@ -59,6 +59,12 @@ std::string ScalarConverter::toInt(const double & val) {
 }
 
 std::string ScalarConverter::toFloat(const double & val) {
+	if (std::isinf(val)) {
+		return val < 0 ? "-inff" : "+inff";
+	} else if (std::isnan(val)) {
+		return "nanf";
+	}
+
 	if (
 			val < std::numeric_limits<float>::lowest()
 		||	val > std::numeric_limits<float>::max() 
@@ -77,6 +83,11 @@ std::string ScalarConverter::toFloat(const double & val) {
 }
 
 std::string ScalarConverter::toDouble(const double & val) {
+	if (std::isinf(val)) {
+		return val < 0 ? "-inf" : "+inf";
+	} else if (std::isnan(val)) {
+		return "nan";
+	}
 	std::string str = std::to_string(val);
 	str.erase ( str.find_last_not_of('0') + 1, std::string::npos );
 	str.erase ( str.find_last_not_of('.') + 1, std::string::npos );
