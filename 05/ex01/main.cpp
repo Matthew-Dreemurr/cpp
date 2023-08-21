@@ -85,7 +85,7 @@ try {
 
 		std::cout << YEL << "===== Test constructor form with too hight grade to execute =====" << CRESET << std::endl;
 
-		Form form("test1", 15, 151);
+		Form form("test1", 15, 0);
 
 	}
 	catch(const std::exception& e)

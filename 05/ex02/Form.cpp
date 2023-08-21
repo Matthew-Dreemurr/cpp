@@ -25,24 +25,20 @@ Form::GradeTooLowException::GradeTooLowException(int grade)
 Form::Form(std::string name, int signed_grade, int execute_grade)
 : name(name), signed_grade(signed_grade), execute_grade(execute_grade), is_signed(false)
 {
-	if (signed_grade < 1 || signed_grade > 150) {
-		throw Form::GradeTooHighException(signed_grade);
-	}
-	if (execute_grade < 1 || execute_grade > 150) {
-		throw Form::GradeTooLowException(execute_grade);
-	}
+	signed_grade < 1 ? throw Form::GradeTooHighException(signed_grade) : 0;
+	signed_grade > 150 ? throw Form::GradeTooLowException(signed_grade) : 0;
+	execute_grade < 1 ? throw Form::GradeTooHighException(execute_grade) : 0;
+	execute_grade > 150 ? throw Form::GradeTooLowException(execute_grade) : 0;
 	std::cout << "[Form] new " << this->name << " signed grade " << this->signed_grade << " execute grade " << this->execute_grade << std::endl;
 }
 
 Form::Form(const Form &newBureaucrat) 
 : name(newBureaucrat.name), signed_grade(newBureaucrat.signed_grade), execute_grade(newBureaucrat.execute_grade), is_signed(false)
 {
-	if (signed_grade < 1 || signed_grade > 150) {
-		throw Form::GradeTooHighException(signed_grade);
-	}
-	if (execute_grade < 1 || execute_grade > 150) {
-		throw Form::GradeTooLowException(execute_grade);
-	}
+	signed_grade < 1 ? throw Form::GradeTooHighException(signed_grade) : 0;
+	signed_grade > 150 ? throw Form::GradeTooLowException(signed_grade) : 0;
+	execute_grade < 1 ? throw Form::GradeTooHighException(execute_grade) : 0;
+	execute_grade > 150 ? throw Form::GradeTooLowException(execute_grade) : 0;
 	std::cout << this->name << " copy constructor" << std::endl;
 }
 
