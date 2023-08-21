@@ -2,7 +2,7 @@
 #define MIN_H
 
 template <typename T>
-const T & min(T & a, T & b) {
+T & min(T & a, T & b) {
 	return (a < b ? a : b);
 }
 
