@@ -10,17 +10,19 @@ class Form
 	class GradeTooHighException: public std::runtime_error {
 		public:
 			GradeTooHighException(const Form & data, const Bureaucrat & user);
+			GradeTooHighException(int grade);
 	};
 	class GradeTooLowException: public std::runtime_error {
 		public:
 			GradeTooLowException(const Form & data, const Bureaucrat & user);
+			GradeTooLowException(int grade);
 	};
 
 private:
 	const std::string	name;
-	int			signed_grade;
-	int			execute_grade;
-	bool		is_signed;
+	const int			signed_grade;
+	const int			execute_grade;
+	bool				is_signed;
 public:
 	Form(std::string name, int signed_grade, int execute_grade);
 	Form(const Form & newForm);

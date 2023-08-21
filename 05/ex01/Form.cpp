@@ -6,25 +6,44 @@ Form::GradeTooHighException::GradeTooHighException(const Form & data, const Bure
 : std::runtime_error("require grade " + INT_TO_STR(data.signed_grade) + " but has " + INT_TO_STR(user.getGrade()) + " grade")
 {}
 
+Form::GradeTooHighException::GradeTooHighException(int grade)
+: std::runtime_error("Grade " + INT_TO_STR(grade) + " is too high")
+{}
+
 Form::GradeTooLowException::GradeTooLowException(const Form & data, const Bureaucrat & user)
 : std::runtime_error("require grade under " + INT_TO_STR(data.signed_grade) + " but has " + INT_TO_STR(user.getGrade()) + " grade")
 {}
 
+Form::GradeTooLowException::GradeTooLowException(int grade)
+: std::runtime_error("Grade " + INT_TO_STR(grade) + " is too low")
+{}
+
+
 Form::Form(std::string name, int signed_grade, int execute_grade)
 : name(name), signed_grade(signed_grade), execute_grade(execute_grade), is_signed(false)
 {
+	if (signed_grade < 1 || signed_grade > 150) {
+		throw Form::GradeTooHighException(signed_grade);
+	}
+	if (execute_grade < 1 || execute_grade > 150) {
+		throw Form::GradeTooLowException(execute_grade);
+	}
 	std::cout << "[Form] new " << this->name << " signed grade " << this->signed_grade << " execute grade " << this->execute_grade << std::endl;
 }
 
 Form::Form(const Form &newBureaucrat) 
 : name(newBureaucrat.name), signed_grade(newBureaucrat.signed_grade), execute_grade(newBureaucrat.execute_grade), is_signed(false)
 {
+	if (signed_grade < 1 || signed_grade > 150) {
+		throw Form::GradeTooHighException(signed_grade);
+	}
+	if (execute_grade < 1 || execute_grade > 150) {
+		throw Form::GradeTooLowException(execute_grade);
+	}
 	std::cout << this->name << " copy constructor" << std::endl;
 }
 
 Form&	Form::operator=(const Form &newBureaucrat) {
-	this->signed_grade = newBureaucrat.signed_grade;
-	this->execute_grade = newBureaucrat.execute_grade;
 	this->is_signed = newBureaucrat.is_signed;
 	std::cout << this->name << " operator= constructor" << std::endl;
 	return *this;
