@@ -11,8 +11,9 @@ int main () {
 	int_list.push_back(i++);
 	int_list.push_back(i++);
 	int_list.push_back(i++);
-
-	std::cout << easyfind<std::list<int> >(int_list, 3) << std::endl;
+	std::list<int>::const_iterator it = easyfind<std::list<int> >(int_list, 3);
+	if (it != int_list.end())
+		std::cout << *it << std::endl;
 
 	char c = 'a';
 
@@ -23,5 +24,5 @@ int main () {
 	char_vec.push_back(c++);
 	char_vec.push_back(c++);
 
-	std::cout << easyfind<std::vector<char> >(int_list, 99) << std::endl;//TODO FIX
+	// std::cout << easyfind<std::vector<char> >(int_list, 99) << std::endl;//TODO FIX
 }
