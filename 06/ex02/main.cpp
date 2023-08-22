@@ -18,7 +18,7 @@ Base * generate(void)
 		return new C();
 }
 
-void identify_from_pointer(Base * p)
+void identify(Base * p)
 {
 	if (dynamic_cast<A *>(p))
 		std::cout << "A" << std::endl;
@@ -28,7 +28,7 @@ void identify_from_pointer(Base * p)
 		std::cout << "C" << std::endl;
 }
 
-void identify_from_reference(Base & p)
+void identify(Base & p)
 {
 	try
 	{
@@ -64,8 +64,8 @@ int main(void)
 {
 	srand(time(NULL));
 	Base * p = generate();
-	identify_from_pointer(p);
-	identify_from_reference(*p);
+	identify(p);
+	identify(*p);
 	delete p;
 	return 0;
 }
