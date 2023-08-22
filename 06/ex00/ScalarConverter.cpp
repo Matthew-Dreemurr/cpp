@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+// #include<sstream> 
 
 ScalarConverter::ScalarConverter() {}
 
@@ -6,18 +7,10 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string & str) {
 
-	// Make parsing
-	// check after `.`
-	// check after `f`
-	// check multiple `.`
-	// check after f
-	// check after litterals (aka nan, inf, -inf, ...)
-
-	double val;
-
 	try
 	{
-		val = std::stod(str);
+		double val;
+		val = std::atof(str.c_str());
 		std::cout << "char: " << toChar(val) << std::endl;
 		std::cout << "int: " << toInt(val) << std::endl;
 		std::cout << "float: " << toFloat(val) << std::endl;
