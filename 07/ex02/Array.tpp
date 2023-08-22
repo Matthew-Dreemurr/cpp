@@ -34,7 +34,7 @@ Array<T> &Array<T>::operator=(Array const &other)
 template <typename T>
 T &Array<T>::operator[](unsigned int i)
 {
-	if (i >= _size)
+	if (i >= _size || i < 0)
 		throw Array<T>::IndexOutOfRangeException();
 	return _array[i];
 }
