@@ -4,7 +4,9 @@
 #include <iostream>
 
 int main () {
+
 	std::list<int>		int_list;
+
 	int i = 0;
 	int_list.push_back(i++);
 	int_list.push_back(i++);
@@ -24,5 +26,18 @@ int main () {
 	char_vec.push_back(c++);
 	char_vec.push_back(c++);
 
-	// std::cout << easyfind<std::vector<char> >(int_list, 99) << std::endl;//TODO FIX
+	std::vector<char>::const_iterator it1 = easyfind<std::vector<char> >(char_vec, 'c');
+
+	if (it1 != char_vec.cend())
+		std::cout << *it1 << std::endl;
+
+	it1 = easyfind<std::vector<char> >(char_vec, 'z');
+
+	if (it1 != char_vec.cend()) {
+		std::cout << *it1 << std::endl;
+	} else {
+		std::cout << "Not fount!" << std::endl;
+	}
+
+	return 0;
 }
