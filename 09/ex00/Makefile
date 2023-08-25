@@ -29,7 +29,7 @@ CFLAGS += -D WRA
 endif
 
 ifeq ($(SANI), 1)
-CFLAGS += -fsanitize=address
+CFLAGS += -fsanitize=address 
 D = 1
 endif
 
@@ -64,11 +64,11 @@ $(OBJ_DIR):
 	@printf "\033[32;1m[Create $(OBJ_DIR)]\033[32;0m\n"
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@printf "\033[32;1m[== Linked OK ==]\033[32;0m\n"
 	@printf "\033[32;1m[== $(NAME) Created ! ==]\033[32;0m\n"
 	@if [ $D = "1" ]; then printf "\033[31;1m[/!\\ DEBUG ENABLE /!\\]\033[32;0m\n"; fi
-	@printf "[Compiled /w this flag $(CFLAGS)]"
+	@printf "[Compiled /w this flag $(CFLAGS)]\n"
 
 clean:
 	@rm -rf $(OBJS)
