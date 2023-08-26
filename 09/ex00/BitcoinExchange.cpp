@@ -22,15 +22,31 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
-void BitcoinExchange::_storeDatePrice(int raw_date[3], float price) {
-
+int BitcoinExchange::_dateToInt(int raw_date[3]) {
     // Check for invalid date
-    if (raw_date[0] < 1 || raw_date[2] > 31)
+    if (raw_date[DAY] < 1 || raw_date[DAY] > 31)
         throw Exception("Invalid day");
-    if (raw_date[1] < 1 || raw_date[1] > 12)
+    if (raw_date[MONTH] < 1 || raw_date[MONTH] > 12)
         throw Exception("Invalid month");
+ 
+    return raw_date[YEAR] * 10000 + raw_date[MONTH] * 100 + raw_date[DAY];
+}
+
+float BitcoinExchange::_getClosetDatePrice(int date) {
+    std::map<int, float>::iterator it = _data.lower_bound(date);
+
+    if (it == _data.end())
+        throw Exception("No data");
+
+    if (it->first != date)
+        --it;
     
-    const int date = raw_date[0] * 10000 + raw_date[1] * 1000 + raw_date[2];
+    return it->second;
+}
+
+void BitcoinExchange::_storeDatePrice(int raw_date[3], float price) {
+   
+    const int date = _dateToInt(raw_date);
 
     // Check for duplicate date    
     if (_data.find(date) != _data.end())
@@ -42,23 +58,22 @@ void BitcoinExchange::_storeDatePrice(int raw_date[3], float price) {
     
     // Store date and price
     _data[date] = price;
-    std::cout << "Debug: " << date << " " << _data[date] << std::endl;
 }
 
 void BitcoinExchange::readDb(std::string filename)
 {
     // Check filename
     if (filename.empty())
-        throw Exception("Filename is empty");
+        throw Exception("Error: Filename is empty");
 
     // Open file
     _file.open(filename.c_str(), std::ios::in);
 
     // Check if file successfully opened and not empty
     if (!_file.is_open())
-        throw Exception("File does not exist");
+        throw Exception("Error: File does not exist");
     if (_file.peek() == std::ifstream::traits_type::eof())
-        throw Exception("File is empty");
+        throw Exception("Error: File is empty");
 
     // Read header of csv file
     if (!_file.eof())
@@ -66,9 +81,9 @@ void BitcoinExchange::readDb(std::string filename)
         std::string line;
         std::getline(_file, line);
         if (_file.eof())
-            throw Exception("File is empty");
+            throw Exception("Error: File is empty");
         if (line != "date,exchange_rate")
-            throw Exception("Invalid header");
+            throw Exception("Error: Invalid header");
     }
   
     int line_count = 1;
@@ -87,19 +102,30 @@ void BitcoinExchange::readDb(std::string filename)
             break;
 
         // Read format: "year-month-day,price"
-        const int ret = std::sscanf(line.c_str(), "%d-%d-%d,%f", &raw_date[0], &raw_date[1], &raw_date[2], &price);
+        const int ret = std::sscanf(line.c_str(), "%d-%d-%d,%f", &raw_date[YEAR], &raw_date[MONTH], &raw_date[DAY], &price);
         if (ret == EOF)
             throw Exception("Error: Read faild: " + filename + ":" + INT_TO_STR(line_count));
-        if (ret != 4)
-            throw Exception("Error: Invalid " + std::string(args[ret]) + " format: " + filename + ":" + INT_TO_STR(line_count));
+        if (ret != 4) {
+            std::cout << "Warn: Invalid " << args[ret] << " format, value will be ignored: " << filename << ":" << INT_TO_STR(line_count) << std::endl;
+            continue;
+        }
 
         // Store date and price
         try {
             _storeDatePrice(raw_date, price);
         } catch (const std::exception &e) {
-            throw Exception("Error: " + std::string(e.what()) + " " + filename + ":" + INT_TO_STR(line_count));
+            std::cout << "Warn: " << std::string(e.what()) << " format, value will be ignored: " << filename << ":" << INT_TO_STR(line_count) << std::endl;
         }
     }
-    
-    throw Exception("end debug");
+
+    // Close file
+    try {
+        _file.close();
+    } catch (const std::exception &e) {
+        std::cout << "Error: " << std::string(e.what()) << " " << filename << std::endl;
+    }
+
+    std::cout << "Info: " << filename << " successfully read" << std::endl;
+    std::cout << "Info: " << _data.size() << " entries stored" << std::endl;
+
 }

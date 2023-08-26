@@ -12,14 +12,22 @@
 
 #define INT_TO_STR(x) static_cast<std::ostringstream &>(std::ostringstream() << x).str()
 
+enum Date
+{
+    YEAR = 0,
+    MONTH = 1,
+    DAY = 2
+};
+
 class BitcoinExchange
 {
 private:
-    std::map<int, int> _data;
+    std::map<int, float> _data;
     std::ifstream _file;
 
     void _storeDatePrice(int[], float);
-
+    int _dateToInt(int[]);
+    float _getClosetDatePrice(int);
 public:
     BitcoinExchange(/* args */);
     BitcoinExchange(const BitcoinExchange &);
