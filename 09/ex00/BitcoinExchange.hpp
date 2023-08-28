@@ -28,6 +28,7 @@ private:
     void _storeDatePrice(int[], float);
     int _dateToInt(int[]);
     float _getClosetDatePrice(int);
+    float _convertPriceRate(int[], float);
 public:
     BitcoinExchange(/* args */);
     BitcoinExchange(const BitcoinExchange &);
@@ -35,6 +36,7 @@ public:
     ~BitcoinExchange();
 
     void readDb(std::string filename);
+    void readInputFile(std::string filename);
 
     class Exception : public std::runtime_error
     {
