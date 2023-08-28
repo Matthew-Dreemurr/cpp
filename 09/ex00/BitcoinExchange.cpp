@@ -13,7 +13,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
     if (this != &copy)
     {
-        // copy data
+        _data = copy._data;
     }
     return *this;
 }
@@ -198,7 +198,7 @@ void BitcoinExchange::readInputFile(std::string filename)
             float priceRate = _convertPriceRate(raw_date, price);
             std::cout << raw_date[0] << "-" << raw_date[1] << "-" << raw_date[2] << " => " << price << " = " << priceRate * price << std::endl;
         } catch (const std::exception &e) {
-            std::cout << "Warn: " << std::string(e.what()) << " format, value will be ignored: " << filename << ":" << INT_TO_STR(line_count) << std::endl;
+            std::cout << "Warn: " << std::string(e.what()) << ", value will be ignored: " << filename << ":" << INT_TO_STR(line_count) << std::endl;
         }
     }
 
