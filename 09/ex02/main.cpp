@@ -1,9 +1,7 @@
 #include "PmergeMe.hpp"
 #include <iostream>
 
-#include <list>
 #include <vector>
-#include <typeinfo>
 #include <deque>
 
 void test(std::vector<size_t> &vec, std::deque<size_t> &deque) {
