@@ -4,50 +4,49 @@
 #include <list>
 #include <vector>
 #include <typeinfo>
+#include <deque>
 
-template <typename T>
-void test(T &container, std::string type, char debug) {
-    std::clock_t    start;
+void test(std::vector<size_t> &vec, std::deque<size_t> &deque) {
+    std::clock_t    start_vec, start_deque, end_vec, end_deque;
 
-    if (debug == 'y') {
-        std::cout << "Before: ";
-        print_(container);
-        std::cout << std::endl;
-    }
+    std::cout << "Before: "; print_(vec);
 
+    start_vec = std::clock();
+    PmergeMe(vec);
+    end_vec = std::clock();
 
-    start = std::clock();
+    start_deque = std::clock();
+    PmergeMe(deque);
+    end_deque = std::clock();
 
-    PmergeMe(container);
-    std::cout << "[" << type << "]" << " Time: " << (std::clock() - start) / (double)(CLOCKS_PER_SEC / 1000) << " ms for " << container.size() << " elements." << std::endl;
+    std::cout << "After: "; print_(vec);
 
-    if (debug == 'y') {
-        std::cout << "After: " << std::endl;
-        print_(container);
-        std::cout << std::endl;
-    }
-
+    std::cout << "[std::vector<int>]" << " Time: " << (end_vec - start_vec) / (double)(CLOCKS_PER_SEC / 1000) << " ms for " << vec.size() << " elements." << std::endl;
+    std::cout << "[std::deque<int>]" << " Time: " << (end_deque - start_deque) / (double)(CLOCKS_PER_SEC / 1000) << " ms for " << deque.size() << " elements." << std::endl;
 }
 
 int main (int ac, char **av) {
-    if (ac < 3 || (av[1][0] != 'y' && av[1][0] != 'n')) {
-        std::cout << "Usage: ./a.out debug: [n|y] int array: [int, ...]" << std::endl;
+    if (ac < 2) {
+        std::cout << "Error" << std::endl;
         return (1);
     }
     std::vector<size_t> vec;
-    std::vector<size_t> list;
+    std::deque<size_t> deque;
     // Convert and store all av in vec
-    for (int i = 2; i < ac; i++) {
+    for (int i = 1; i < ac; i++) {
         // Check if av[i] is a number
+        if (!av[i][0]) {
+            std::cout << "Error" << std::endl;
+            return (1);
+        }
         for (int j = 0; av[i][j]; j++) {
             if (av[i][j] < '0' || av[i][j] > '9') {
-                std::cout << "Error: not valid number" << std::endl;
+                std::cout << "Error" << std::endl;
                 return (1);
             }
         }
         vec.push_back(std::atoi(av[i]));
-        list.push_back(std::atoi(av[i]));
+        deque.push_back(std::atoi(av[i]));
     }
-    test(vec, "Vector", av[1][0]);
-    test(list, "List", av[1][0]);
+    test(vec, deque);
 }
