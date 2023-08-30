@@ -73,6 +73,18 @@ void    merge(T & container, typename T::iterator list1, typename T::iterator li
 
 template <typename T>
 void    PmergeMe(T & container) {
+    
+    // Remove duplicate values
+    for (typename T::iterator it = container.begin(); it != container.end(); it++) {
+        for (typename T::iterator it2 = it + 1; it2 != container.end(); it2++) {
+            if (*it == *it2) {
+                container.erase(it2);
+                it2--;
+            }
+        }
+    }
+
+    // Insertion sort
     for (size_t i = 0; i < container.size(); i += K_DIV) {
         typename T::iterator a = container.begin() + i;
         if (container.size() - i >= K_DIV) {
@@ -81,6 +93,8 @@ void    PmergeMe(T & container) {
             insert(container, a, container.size() - i);
         }
     }
+
+    // Merge
     for (size_t len = K_DIV; len <= container.size(); len *= 2) {
         size_t  nb_arr = container.size() / len + !!(container.size() % len);
         for (size_t i = 0; i < nb_arr; i += 2) {

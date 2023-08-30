@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 #include <iostream>
 
-// #include <list>
+#include <list>
 #include <vector>
 
 
@@ -21,10 +21,13 @@ void test(T & container) {
     print_(container);
     PmergeMe(container);
     print_(container);
+
+    std::cout << "===============" << std::endl;
 }
 
 int main () {
     std::vector<size_t> vec;
     test(vec);
-
+    std::vector<size_t> list;
+    test(list);
 }
