@@ -38,6 +38,13 @@ int main (int ac, char **av) {
     std::vector<size_t> list;
     // Convert and store all av in vec
     for (int i = 2; i < ac; i++) {
+        // Check if av[i] is a number
+        for (int j = 0; av[i][j]; j++) {
+            if (av[i][j] < '0' || av[i][j] > '9') {
+                std::cout << "Error: not valid number" << std::endl;
+                return (1);
+            }
+        }
         vec.push_back(std::atoi(av[i]));
         list.push_back(std::atoi(av[i]));
     }
