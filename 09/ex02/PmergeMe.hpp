@@ -4,7 +4,15 @@
 #include <cstddef>
 #include <iostream>
 
-#define K_DIV 3
+#define K_DIV 7
+
+template <typename T>
+void print_(T & container) {
+    for (typename T::iterator it = container.begin(); it != container.end(); it++) {
+        std::cout << *it << " " ;
+    }
+    std::cout << std::endl;
+}
 
 template <typename T>
 void do_insert (
@@ -53,11 +61,11 @@ void    merge(T & container, typename T::iterator list1, typename T::iterator li
     const typename T::iterator end = getEnd(container, list2, len);
 
     while (list1 != list2 && list2 != end) {
-        if (*list1 > *list2) {//TODO FIX SEGFAULT
-            do_insert(container, begin, list1, list1);
+        if (*list1 < *list2) {
+            do_insert(container, begin, list1 + 1, list1);
             list1++;
         } else {
-            do_insert(container, begin, list1, list2);
+            do_insert(container, begin, list1 + 1, list2);
             list2++;
         }
     }
@@ -73,11 +81,10 @@ void    PmergeMe(T & container) {
             insert(container, a, container.size() - i);
         }
     }
-    for (size_t len = K_DIV; len <= container.size() * 2; len *= 2) {
+    for (size_t len = K_DIV; len <= container.size(); len *= 2) {
         size_t  nb_arr = container.size() / len + !!(container.size() % len);
         for (size_t i = 0; i < nb_arr; i += 2) {
             if (nb_arr == 1 || !(i == nb_arr - 1 && nb_arr % 2)){
-                std::cout << len << ": " << nb_arr << std::endl;
                 merge(
                     container,
                     container.begin() + i * len,
