@@ -8,7 +8,7 @@
 int main(int ac, char **av)
 {
     if (ac < 2 || av[1][0] == '\0') {
-        printf("Error\n");
+        std::cout << "Error" << std::endl;
         return (1);
     }
 
