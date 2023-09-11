@@ -35,11 +35,12 @@ int BitcoinExchange::_dateToInt(int raw_date[3]) {
 float BitcoinExchange::_getClosetDatePrice(int date) {
     std::map<int, float>::iterator it = _data.lower_bound(date);
 
-    if (it == _data.end())
-        throw Exception("No data");
 
-    if (it->first != date)
+    if (it->first != date) {
         --it;
+        if (it == _data.end())
+            throw Exception("No data");
+    }
     
     return it->second;
 }
@@ -98,13 +99,17 @@ void BitcoinExchange::readDb(std::string filename)
         int         raw_date[3];
 
         std::getline(_file, line);
-        if (_file.eof())
-            break;
+        // std::cout << line << std::endl;
+        // if (_file.eof())
+            // break;
 
         // Read format: "year-month-day,price"
         const int ret = std::sscanf(line.c_str(), "%d-%d-%d,%f", &raw_date[YEAR], &raw_date[MONTH], &raw_date[DAY], &price);
-        if (ret == EOF)
+        if (ret == EOF) {
+            if  (_file.eof())
+                break;
             throw Exception("Error: Read faild: " + filename + ":" + INT_TO_STR(line_count));
+        }
         if (ret != 4) {
             std::cout << "Warn: Invalid " << args[ret] << " format, value will be ignored: " << filename << ":" << INT_TO_STR(line_count) << std::endl;
             continue;
@@ -127,11 +132,18 @@ void BitcoinExchange::readDb(std::string filename)
 
     std::cout << "Info: " << filename << " successfully read" << std::endl;
     std::cout << "Info: " << _data.size() << " entries stored" << std::endl;
+    //print all data in map
+    for (std::map<int, float>::iterator it = _data.begin(); it != _data.end(); ++it)
+        std::cout << it->first << " => " << it->second << '\n';
 }
 
 
 float BitcoinExchange::_convertPriceRate(int raw_date[3], float price) {
 
+    //TODO REMOVE
+    //print date
+    std::cout << "Debug " << raw_date[0] << "-" << raw_date[1] << "-" << raw_date[2] << std::endl;
+    std::cout << "Debug " << _dateToInt(raw_date) << std::endl;
     // Check for invalid price
     if (std::isnan(price) || std::isinf(price))
         throw Exception("Invalid price");
@@ -181,13 +193,16 @@ void BitcoinExchange::readInputFile(std::string filename)
         int         raw_date[3];
 
         std::getline(_file, line);
-        if (_file.fail())
-            break;
+        // if (_file.fail())
+        //     break;
 
         // Read format: "year-month-day,price"
         const int ret = std::sscanf(line.c_str(), "%d-%d-%d | %f", &raw_date[YEAR], &raw_date[MONTH], &raw_date[DAY], &price);
-        if (ret == EOF)
+        if (ret == EOF) {
+            if  (_file.eof())
+                break;
             throw Exception("Error: Read faild: " + filename + ":" + INT_TO_STR(line_count));
+        }
         if (ret != 4) {
             std::cout << "Warn: Invalid " << args[ret] << " format, value will be ignored: " << filename << ":" << INT_TO_STR(line_count) << std::endl;
             continue;
