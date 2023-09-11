@@ -24,10 +24,14 @@ BitcoinExchange::~BitcoinExchange()
 
 int BitcoinExchange::_dateToInt(int raw_date[3]) {
     // Check for invalid date
-    if (raw_date[DAY] < 1 || raw_date[DAY] > 31)
-        throw Exception("Invalid day");
+    int day_max[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+
     if (raw_date[MONTH] < 1 || raw_date[MONTH] > 12)
         throw Exception("Invalid month");
+    if (raw_date[YEAR] % 4 == 0 && (raw_date[YEAR] % 100 != 0 || raw_date[YEAR] % 400 == 0))
+        day_max[1] = 29;
+    if (raw_date[DAY] < 1 || raw_date[DAY] > day_max[raw_date[MONTH] - 1])
+        throw Exception("Invalid day");
  
     return raw_date[YEAR] * 10000 + raw_date[MONTH] * 100 + raw_date[DAY];
 }
@@ -149,6 +153,8 @@ float BitcoinExchange::_convertPriceRate(int raw_date[3], float price) {
 
 void BitcoinExchange::readInputFile(std::string filename)
 {
+    if (_data.empty())
+        throw Exception("Error: No data stored");
     // Check filename
     if (filename.empty())
         throw Exception("Error: Filename is empty");
