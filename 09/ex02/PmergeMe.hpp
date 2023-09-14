@@ -14,24 +14,8 @@ void print_(T & container) {
     std::cout << std::endl;
 }
 
-// template <typename T>
-// void do_insert (
-//     T & container,
-//     typename T::iterator begin,
-//     typename T::iterator end,
-//     typename T::iterator self
-// ) {
-//     for(typename T::iterator it = begin; it != end; it++) {
-//         if (*self < *it) {
-//             const size_t tmp = *self;
-//             container.erase(self);
-//             container.insert(it, tmp);
-//         }
-//     }
-// }
-
 template <typename T>
-typename T::iterator do_insert (
+std::pair<typename T::iterator, typename T::iterator> do_insert (
     T & container,
     typename T::iterator begin,
     typename T::iterator end,
@@ -43,27 +27,29 @@ typename T::iterator do_insert (
             const size_t tmp = *self;
             self = container.erase(self);
             it = container.insert(it, tmp);
+            self = container.begin() + std::distance(container.begin(), it);
+            it = container.begin() + std::distance(container.begin(), it);
             break;
         }
     }
-    return it;
+    return std::make_pair(self, it);
 }
 
 template <typename T>
 typename T::iterator insert(T & container, const typename T::iterator & begin, const size_t len_div) {
-    typename T::iterator ptr = begin;
+    if (len_div < 2)
+        return container.begin();
 
-    for (size_t i = 0; i < len_div - 1; i++, ptr++) {
-        if (*(ptr + 1) < *ptr) {
-            long i = 0;
-            for (typename T::iterator iptr = begin; i < (ptr - begin + 1); i++, iptr++) {
-                if (*(ptr + 1) < *begin + i) {
-                    size_t tmp = *(ptr+1);
-                    ptr = container.erase(ptr + 1);
-                    ptr = container.insert(begin + i, tmp); // update ptr after erase and insert
-                    break;
-                }
-            }
+    typename T::iterator ptr = begin + 1;
+
+    for (size_t i = 1; i < len_div; ++i, ++ptr)
+    {
+        if (*ptr < *(ptr - 1))
+        {
+            size_t tmp = *ptr;
+            ptr = container.erase(ptr);
+            typename T::iterator pos = std::upper_bound(begin, ptr, tmp);
+            ptr = container.insert(pos, tmp);
         }
     }
     return ptr;
@@ -82,10 +68,12 @@ void merge(T & container, typename T::iterator list1, typename T::iterator list2
 
     while (list1 != list2 && list2 != end) {
         if (*list1 < *list2) {
-            list1 = do_insert(container, begin, list1 + 1, list1);
+            std::pair<typename T::iterator, typename T::iterator> new_iters = do_insert(container, begin, list1 + 1, list1);
+            list1 = new_iters.first;
             list1++;
         } else {
-            list2 = do_insert(container, begin, list1 + 1, list2);
+            std::pair<typename T::iterator, typename T::iterator> new_iters = do_insert(container, begin, list1 + 1, list2);
+            list2 = new_iters.first;
             list2++;
         }
     }
@@ -128,8 +116,6 @@ void    PmergeMe(T & container) {
             }
         }
     }
-
-
 }
 
 
