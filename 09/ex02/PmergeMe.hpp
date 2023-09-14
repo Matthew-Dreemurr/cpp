@@ -14,39 +14,59 @@ void print_(T & container) {
     std::cout << std::endl;
 }
 
+// template <typename T>
+// void do_insert (
+//     T & container,
+//     typename T::iterator begin,
+//     typename T::iterator end,
+//     typename T::iterator self
+// ) {
+//     for(typename T::iterator it = begin; it != end; it++) {
+//         if (*self < *it) {
+//             const size_t tmp = *self;
+//             container.erase(self);
+//             container.insert(it, tmp);
+//         }
+//     }
+// }
+
 template <typename T>
-void do_insert (
+typename T::iterator do_insert (
     T & container,
     typename T::iterator begin,
     typename T::iterator end,
     typename T::iterator self
 ) {
-    for(typename T::iterator it = begin; it != end; it++) {
+    typename T::iterator it;
+    for(it = begin; it != end; it++) {
         if (*self < *it) {
             const size_t tmp = *self;
-            container.erase(self);
-            container.insert(it, tmp);
+            self = container.erase(self);
+            it = container.insert(it, tmp);
+            break;
         }
     }
+    return it;
 }
 
 template <typename T>
-void    insert(T & container, const typename T::iterator & begin, const size_t len_div) {
+typename T::iterator insert(T & container, const typename T::iterator & begin, const size_t len_div) {
     typename T::iterator ptr = begin;
 
     for (size_t i = 0; i < len_div - 1; i++, ptr++) {
-
         if (*(ptr + 1) < *ptr) {
-            for (typename T::iterator iptr = begin; iptr != (ptr + 1); iptr++) {
-
-                if (*(ptr + 1) < *iptr) {
+            long i = 0;
+            for (typename T::iterator iptr = begin; i < (ptr - begin + 1); i++, iptr++) {
+                if (*(ptr + 1) < *begin + i) {
                     size_t tmp = *(ptr+1);
-                    container.erase(ptr + 1);
-                    container.insert(iptr, tmp);
+                    ptr = container.erase(ptr + 1);
+                    ptr = container.insert(begin + i, tmp); // update ptr after erase and insert
+                    break;
                 }
             }
         }
     }
+    return ptr;
 }
 
 template <typename T>
@@ -56,16 +76,16 @@ typename T::iterator getEnd(T & container, typename T::iterator list2, size_t le
 }
 
 template <typename T>
-void    merge(T & container, typename T::iterator list1, typename T::iterator list2, size_t len) {
+void merge(T & container, typename T::iterator list1, typename T::iterator list2, size_t len) {
     const typename T::iterator begin = list1;
     const typename T::iterator end = getEnd(container, list2, len);
 
     while (list1 != list2 && list2 != end) {
         if (*list1 < *list2) {
-            do_insert(container, begin, list1 + 1, list1);
+            list1 = do_insert(container, begin, list1 + 1, list1);
             list1++;
         } else {
-            do_insert(container, begin, list1 + 1, list2);
+            list2 = do_insert(container, begin, list1 + 1, list2);
             list2++;
         }
     }
@@ -84,13 +104,13 @@ void    PmergeMe(T & container) {
         }
     }
 
-    // Insertion sort
+     // Insertion sort
     for (size_t i = 0; i < container.size(); i += K_DIV) {
         typename T::iterator a = container.begin() + i;
         if (container.size() - i >= K_DIV) {
-            insert(container, a, K_DIV);
+            a = insert(container, a, K_DIV);
         } else {
-            insert(container, a, container.size() - i);
+            a = insert(container, a, container.size() - i);
         }
     }
 
