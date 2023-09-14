@@ -21,17 +21,19 @@ void do_insert (
     typename T::iterator end,
     typename T::iterator self
 ) {
+	(void)container;
     for(typename T::iterator it = begin; it != end; it++) {
         if (*self < *it) {
             const size_t tmp = *self;
-            container.erase(self);
-            container.insert(it, tmp);
+			*self = *it;
+			*it = tmp;
         }
     }
 }
 
 template <typename T>
 void    insert(T & container, const typename T::iterator & begin, const size_t len_div) {
+	(void) container;
     typename T::iterator ptr = begin;
 
     for (size_t i = 0; i < len_div - 1; i++, ptr++) {
@@ -41,8 +43,8 @@ void    insert(T & container, const typename T::iterator & begin, const size_t l
 
                 if (*(ptr + 1) < *iptr) {
                     size_t tmp = *(ptr+1);
-                    container.erase(ptr + 1);
-                    container.insert(iptr, tmp);
+					*(ptr+1) = *iptr;
+					*iptr = tmp;
                 }
             }
         }
