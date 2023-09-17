@@ -47,7 +47,7 @@ void mergeInsertsort(T& container)
 {
 	size_t	len = container.size();
 
-	if (len > 100)
+	if (len > K_DIV)
 	{
 		typename T::iterator begin = container.begin();
 		typename T::iterator mid = container.begin();
